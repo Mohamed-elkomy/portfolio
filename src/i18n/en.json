@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "title": "Mohamed Magdy Elkomy — Front-End Developer",
+    "description": "Front-End Developer crafting refined, performant web experiences with React.js."
+  },
+  "nav": {
+    "work": "Work",
+    "photography": "Photography",
+    "about": "About",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "hero": {
+    "available": "Available for opportunities",
+    "role": "Front-End Developer · React",
+    "name": "Mohamed Magdy Elkomy",
+    "nameArabic": "محمد مجدي الكومي",
+    "intro": "I craft refined, performant web experiences with React.js. Currently building production apps at <1>{{company}}</1> in Cairo — when I'm not behind a camera or pulling shots from my home espresso setup.",
+    "company": "Brmja Tech",
+    "viewWork": "View work",
+    "getInTouch": "Get in touch",
+    "based": "Based in",
+    "location": "Cairo · Egypt · UTC+2",
+    "scroll": "Scroll"
+  },
+  "stats": {
+    "title": "By the numbers",
+    "subtitle": "A snapshot of where I am today",
+    "repos": "Public repos",
+    "contributions": "GitHub contributions",
+    "projects": "Projects shipped",
+    "certificates": "Certifications",
+    "languages": "Languages spoken",
+    "lastYear": "in the last year",
+    "total": "to date"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Engineering meets craft",
+    "p1": "Hi, I'm Mohamed Magdy — most people call me Mo. I graduated from MTI in 2024 with a degree in Computer Science and AI, after exploring everything from embedded systems at ITI to machine learning at Zewail City.",
+    "p2": "Front-end is where I found my home — where engineering meets craft, and where the work reaches real people every day. I care about clean code, smooth interactions, and the small details that make a product feel <1>{{premium}}</1>.",
+    "p2Highlight": "premium",
+    "p3": "Outside of code, I'm probably behind a camera or pulling shots from my MaxxPresso. The same care that goes into a well-framed photograph or a well-pulled espresso belongs in software too.",
+    "downloadCV": "Download Résumé",
+    "readMore": "Read full story"
+  },
+  "projects": {
+    "eyebrow": "Selected work",
+    "title": "Recent projects",
+    "subtitle": "A curated selection from {{total}} shipped projects.",
+    "viewLive": "Live demo",
+    "viewSource": "Source",
+    "viewCase": "Case study",
+    "viewAll": "View all projects",
+    "category": {
+      "ecommerce": "E-commerce",
+      "saas": "SaaS Platform",
+      "editorial": "Editorial",
+      "b2b": "B2B",
+      "education": "Education",
+      "retail": "Retail",
+      "healthcare": "Healthcare",
+      "marketplace": "Marketplace"
+    }
+  },
+  "skills": {
+    "eyebrow": "Toolkit",
+    "title": "What I work with",
+    "core": "Core competencies",
+    "tools": "Tools & platforms"
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Where I've worked",
+    "present": "Present"
+  },
+  "education": {
+    "eyebrow": "Education",
+    "title": "Background",
+    "gpa": "GPA"
+  },
+  "certifications": {
+    "eyebrow": "Certifications",
+    "title": "Continuous learning",
+    "subtitle": "9 certifications from 7 institutions",
+    "view": "View certificate",
+    "viewAll": "View all certificates"
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Available for hire",
+    "subtitle": "Currently taking on select freelance projects.",
+    "getQuote": "Request a quote"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's build something",
+    "subtitle": "Whether it's a job opportunity, a freelance project, or just hello — my inbox is open.",
+    "emailMe": "Email me",
+    "or": "or",
+    "social": "Find me elsewhere"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with",
+    "and": "and"
+  },
+  "common": {
+    "languageEN": "EN",
+    "languageAR": "ع",
+    "toggleTheme": "Toggle theme",
+    "switchLanguage": "Switch language",
+    "menu": "Menu",
+    "close": "Close",
+    "soon": "Coming soon"
+  }
+}

@@ -1,0 +1,314 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Design tokens — Light mode (default)
+   ============================================================ */
+:root {
+  --bg: 250 250 245;        /* cream-200 */
+  --fg: 28 25 23;           /* ink-800 */
+  --muted: 120 113 108;     /* ink-400 */
+  --subtle: 245 244 242;    /* ink-50 */
+  --accent: 200 160 85;     /* brass-500 */
+  --border: 28 25 23;       /* ink-800 (used with low alpha) */
+  --card: 255 255 254;      /* cream-50 */
+
+  --selection-bg: 200 160 85;
+  --selection-fg: 28 25 23;
+
+  --section-spacing: clamp(4rem, 10vh, 7rem);
+}
+
+.dark {
+  --bg: 12 10 9;            /* ink-900 */
+  --fg: 245 244 242;        /* ink-50 */
+  --muted: 168 162 154;     /* ink-300 */
+  --subtle: 28 25 23;       /* ink-800 */
+  --accent: 200 160 85;     /* brass-500 */
+  --border: 245 244 242;
+  --card: 28 25 23;         /* ink-800 */
+
+  --selection-bg: 200 160 85;
+  --selection-fg: 12 10 9;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  * {
+    @apply border-border/10;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans;
+    font-feature-settings: 'ss01', 'cv11';
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  ::selection {
+    background-color: rgb(var(--selection-bg));
+    color: rgb(var(--selection-fg));
+  }
+
+  /* RTL adjustments */
+  [dir='rtl'] body {
+    @apply font-arabic-sans;
+  }
+
+  [dir='rtl'] .font-serif {
+    @apply font-arabic;
+  }
+
+  /* Focus rings — subtle and brand-aware */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brass-500 ring-offset-2 ring-offset-bg;
+  }
+
+  /* Scrollbar — refined */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--border) / 0.15);
+    border-radius: 100px;
+    border: 2px solid rgb(var(--bg));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--accent) / 0.5);
+  }
+}
+
+/* ============================================================
+   Components — reusable styles
+   ============================================================ */
+@layer components {
+  .container-base {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    padding-top: var(--section-spacing);
+    padding-bottom: var(--section-spacing);
+  }
+
+  /* Status pill with green dot */
+  .status-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-ink-800/12 bg-ink-800/4
+           px-3 py-1.5 text-xs font-medium text-ink-700
+           dark:border-cream-200/15 dark:bg-cream-200/5 dark:text-cream-200/85;
+  }
+
+  .status-dot {
+    @apply h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse-dot;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5
+           text-sm font-medium transition-all duration-300 ease-out-expo
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-500
+           focus-visible:ring-offset-2 focus-visible:ring-offset-bg
+           disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink-800 text-cream-200 hover:bg-ink-700
+           dark:bg-cream-200 dark:text-ink-800 dark:hover:bg-cream-100;
+  }
+
+  .btn-secondary {
+    @apply btn border border-ink-800/20 bg-transparent text-ink-800 hover:bg-ink-800/4
+           dark:border-cream-200/20 dark:text-cream-200 dark:hover:bg-cream-200/4;
+  }
+
+  .btn-brass {
+    @apply btn bg-brass-500 text-ink-800 hover:bg-brass-400;
+  }
+
+  /* Eyebrow — small caps label above headings */
+  .eyebrow {
+    @apply text-[10px] font-medium uppercase tracking-mega text-brass-600 dark:text-brass-400;
+  }
+
+  /* Section heading */
+  .section-title {
+    @apply font-serif text-display-md text-fg;
+  }
+
+  /* Subtle card */
+  .card-base {
+    @apply rounded-lg border border-ink-800/8 bg-card transition-colors duration-300
+           dark:border-cream-200/8;
+  }
+
+  /* Tech tag */
+  .tech-tag {
+    @apply inline-flex items-center rounded px-2 py-0.5 font-mono text-[11px] font-medium
+           bg-brass-500/12 text-brass-700 dark:bg-brass-500/15 dark:text-brass-300;
+  }
+
+  /* Marquee container */
+  .marquee {
+    @apply flex w-max animate-marquee;
+  }
+
+  /* Editorial number — for stats */
+  .stat-number {
+    @apply font-serif text-display-lg text-fg tabular-nums;
+  }
+
+  .stat-label {
+    @apply text-xs uppercase tracking-mega text-muted;
+  }
+
+  /* Animated underline link */
+  .link-underline {
+    @apply relative inline-block text-fg;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: rgb(var(--accent));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* ============================================================
+   Utilities — extras
+   ============================================================ */
+@layer utilities {
+  /* Smooth opacity transitions for fonts loading */
+  .font-loading {
+    visibility: hidden;
+  }
+  .fonts-loaded .font-loading {
+    visibility: visible;
+  }
+
+  /* Glow text — used sparingly on emphasis words */
+  .text-brass-glow {
+    color: rgb(var(--accent));
+    text-shadow: 0 0 24px rgb(var(--accent) / 0.25);
+  }
+
+  /* Hide scrollbar utility */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Grain texture for hero — subtle, premium feel */
+  .grain {
+    position: relative;
+  }
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+  .dark .grain::before {
+    opacity: 0.04;
+  }
+}
+
+/* ============================================================
+   Optical-size adjustment for Fraunces — bigger = more contrast
+   ============================================================ */
+.font-serif {
+  font-variation-settings: 'opsz' 144, 'SOFT' 50, 'WONK' 0;
+}
+
+.font-serif.italic {
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+}
+
+/* Reduce motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Content protection — print blocking + global image no-drag
+   ============================================================ */
+@media print {
+  /* Block almost all content on print attempts */
+  body * {
+    visibility: hidden !important;
+  }
+  body::before {
+    content: '© Mohamed Magdy Elkomy — Protected content. Printing is not authorized.';
+    visibility: visible !important;
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    font-family: serif;
+    font-size: 14pt;
+    color: #000;
+    background: #fff;
+  }
+}
+
+/* Globally prevent image dragging — universal selector for safety */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+/* Protected zones — disable text selection inside <[data-protected="true"]> images and headlines */
+[data-protected='true'] img,
+[data-protected='true'] picture,
+[data-protected='true'] video {
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
