@@ -10,7 +10,7 @@ import { useLocale } from '@/hooks/useLocale'
 
 const MARQUEE_ITEMS = [
   'Front-End Developer',
-  'React · Vite · TypeScript',
+  'React · Vite · JavaScript',
   'Available for hire',
   'Based in Cairo',
   'Building at Brmja Tech',
