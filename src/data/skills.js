@@ -22,7 +22,6 @@ export const coreSkills = [
 export const tools = [
   'Git & GitHub',
   'VS Code',
-  'Cursor',
   'Warp',
   'Figma',
   'Adobe XD',
