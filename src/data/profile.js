@@ -28,7 +28,7 @@ export const social = [
     id: 'linkedin',
     label: 'LinkedIn',
     handle: 'mohamed-magdy-elkomy',
-    url: 'https://www.linkedin.com/in/mohamed-magdy-elkomy-39449518b',
+    url: 'https://www.linkedin.com/in/mohamed-magdy-elkomy/',
     icon: 'Linkedin',
   },
   {
@@ -61,5 +61,5 @@ export const aggregateStats = [
   { id: 'projects', label: 'projects shipped', value: 25, suffix: '+' },
   { id: 'repos', label: 'public repos', value: 97 },
   { id: 'contributions', label: 'contributions / year', value: 370 },
-  { id: 'certificates', label: 'certifications', value: 9 },
+  { id: 'certificates', label: 'certifications', value: 8 },
 ]

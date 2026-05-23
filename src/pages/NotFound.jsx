@@ -3,13 +3,14 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 
+import PageTransition from '@/components/common/PageTransition'
 import { useLocale } from '@/hooks/useLocale'
 
 export default function NotFound() {
   const { t, isRTL } = useLocale()
 
   return (
-    <>
+    <PageTransition>
       <Helmet>
         <title>404 — Page not found</title>
       </Helmet>
@@ -32,6 +33,6 @@ export default function NotFound() {
           </Link>
         </motion.div>
       </div>
-    </>
+    </PageTransition>
   )
 }

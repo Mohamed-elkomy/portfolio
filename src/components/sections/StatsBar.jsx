@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import AnimatedCounter from '@/components/common/AnimatedCounter'
 import { useLocale } from '@/hooks/useLocale'
 
 const STATS = [
@@ -12,7 +13,11 @@ export default function StatsBar() {
   const { t } = useLocale()
 
   return (
-    <section id="stats" className="border-y border-fg/8 bg-card/40 py-12 md:py-16" aria-labelledby="stats-title">
+    <section
+      id="stats"
+      className="border-y border-fg/8 bg-card/40 py-10 md:py-14"
+      aria-labelledby="stats-title"
+    >
       <div className="container-base">
         <h2 id="stats-title" className="sr-only">{t('stats.title')}</h2>
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
@@ -26,9 +31,10 @@ export default function StatsBar() {
               className="group"
             >
               <div className="flex items-baseline gap-1">
-                <span className="stat-number transition-colors duration-300 group-hover:text-brass-600 dark:group-hover:text-brass-400">
-                  {stat.value}
-                </span>
+                <AnimatedCounter
+                  value={stat.value}
+                  className="stat-number transition-colors duration-300 group-hover:text-brass-600 dark:group-hover:text-brass-400"
+                />
                 {stat.suffix && (
                   <span className="font-serif text-2xl text-brass-500">{stat.suffix}</span>
                 )}

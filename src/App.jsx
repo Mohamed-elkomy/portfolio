@@ -1,16 +1,18 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Outlet, useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { AnimatePresence } from 'framer-motion'
 import Lenis from 'lenis'
 
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import ProtectionToast from '@/components/common/ProtectionToast'
+import CustomCursor from '@/components/common/CustomCursor'
+import ScrollProgress from '@/components/common/ScrollProgress'
 
 import Home from '@/pages/Home'
-import ProjectsGallery from '@/pages/Projects'
+import Work from '@/pages/Projects'
 import ProjectDetail from '@/pages/ProjectDetail'
-import Photography from '@/pages/Photography'
 import AboutPage from '@/pages/AboutPage'
 import CertificationsPage from '@/pages/CertificationsPage'
 import ContactPage from '@/pages/ContactPage'
@@ -27,14 +29,20 @@ function ScrollToTop() {
   return null
 }
 
-/** Shared layout — Navbar + content + Footer + global protection toast */
+/** Shared layout — Navbar + AnimatePresence-wrapped routes + Footer */
 function Layout() {
   const { toast, dismiss } = useContentProtection()
+  const location = useLocation()
+
   return (
     <div className="flex min-h-screen flex-col">
+      <ScrollProgress />
+      <CustomCursor />
       <Navbar />
       <main id="main" className="flex-1">
-        <Outlet />
+        <AnimatePresence mode="wait" initial={false}>
+          <Outlet key={location.pathname} />
+        </AnimatePresence>
       </main>
       <Footer />
       <ProtectionToast toast={toast} onDismiss={dismiss} />
@@ -43,7 +51,6 @@ function Layout() {
 }
 
 export default function App() {
-  // Initialize Lenis smooth scroll once, respecting prefers-reduced-motion
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReducedMotion) return
@@ -75,12 +82,14 @@ export default function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/projects" element={<ProjectsGallery />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/work/:slug" element={<ProjectDetail />} />
+            {/* Legacy routes — redirect-friendly */}
+            <Route path="/projects" element={<Work />} />
             <Route path="/projects/:slug" element={<ProjectDetail />} />
-            <Route path="/photography" element={<Photography />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/certifications" element={<CertificationsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/certifications" element={<CertificationsPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

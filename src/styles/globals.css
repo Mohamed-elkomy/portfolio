@@ -68,6 +68,16 @@
     @apply font-arabic;
   }
 
+  /* Ensure proper Arabic text rendering — preserve letter joining */
+  [dir='rtl'],
+  .font-arabic,
+  .font-arabic-sans {
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    -moz-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+
   /* Focus rings — subtle and brand-aware */
   :focus-visible {
     @apply outline-none ring-2 ring-brass-500 ring-offset-2 ring-offset-bg;
@@ -255,6 +265,38 @@
 
 .font-serif.italic {
   font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+}
+
+/* ============================================================
+   Custom cursor — hide default on fine-pointer devices
+   ============================================================ */
+@media (pointer: fine) {
+  html,
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  [role='button'],
+  input,
+  textarea,
+  select,
+  [data-cursor='hover'] {
+    cursor: none;
+  }
+
+  /* Always show real cursor inside form inputs for usability */
+  input[type='text'],
+  input[type='email'],
+  input[type='url'],
+  input[type='tel'],
+  input[type='password'],
+  input[type='search'],
+  input[type='number'],
+  textarea {
+    cursor: text;
+  }
 }
 
 /* Reduce motion respect */

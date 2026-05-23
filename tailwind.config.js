@@ -15,13 +15,6 @@ export default {
       },
     },
     extend: {
-      opacity: {
-        4: '0.04',
-        6: '0.06',
-        8: '0.08',
-        12: '0.12',
-        85: '0.85',
-      },
       colors: {
         // Refined Minimal Premium palette
         brass: {
@@ -63,6 +56,19 @@ export default {
         accent: 'rgb(var(--accent) / <alpha-value>)',
         border: 'rgb(var(--border) / <alpha-value>)',
         card: 'rgb(var(--card) / <alpha-value>)',
+      },
+      // Extra opacity steps used by slash-color modifiers (e.g. border-ink-800/12).
+      // @apply validates these against the opacity scale, so non-default values
+      // must be registered here or the production build fails.
+      opacity: {
+        4: '0.04',
+        6: '0.06',
+        8: '0.08',
+        12: '0.12',
+        15: '0.15',
+        22: '0.22',
+        65: '0.65',
+        85: '0.85',
       },
       fontFamily: {
         // Distinctive typography — Fraunces (serif display), Geist (body), Amiri (Arabic serif), Cairo (Arabic body)

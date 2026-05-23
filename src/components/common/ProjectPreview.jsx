@@ -1,22 +1,32 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ExternalLink, RotateCw, Loader2 } from 'lucide-react'
+import { ExternalLink, ImageOff } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
 /**
- * Renders the live project inside a desktop browser–style frame with traffic-light dots
- * and a URL bar. Includes a reload button.
+ * Renders a static screenshot of the live project inside a desktop browser–style
+ * frame (traffic lights + URL bar), with a prominent "Open Live →" CTA. A phone
+ * mockup with the mobile screenshot is overlaid in the corner so the responsive
+ * work is shown off — desktop + mobile at a glance.
  *
- * Note: If a target site sets X-Frame-Options: DENY, the iframe will be blocked by the browser.
- * In that case the user must allow framing on their deployment or use a fallback screenshot.
+ * Screenshots live at /projects/{slug}.jpg (desktop) and
+ * /projects/{slug}-mobile.jpg (mobile), produced by
+ * scripts/capture-screenshots.mjs. Missing images fall back gracefully:
+ * the desktop falls back to a placeholder, the phone simply hides.
  */
-export default function ProjectPreview({ url, title = 'Project preview', className }) {
+export default function ProjectPreview({ slug, url, title = 'Project preview', className }) {
   const [loaded, setLoaded] = useState(false)
-  const [reloadKey, setReloadKey] = useState(0)
+  const [errored, setErrored] = useState(false)
+  const [mobileLoaded, setMobileLoaded] = useState(false)
+  const [mobileErrored, setMobileErrored] = useState(false)
 
   // Display the URL nicely (no protocol)
   const displayUrl = url.replace(/^https?:\/\//, '')
+  const imgSrc = slug ? `/projects/${slug}.jpg` : null
+  const mobileSrc = slug ? `/projects/${slug}-mobile.jpg` : null
+  const showDesktop = imgSrc && !errored
+  const showPhone = showDesktop && mobileSrc && !mobileErrored
 
   return (
     <motion.div
@@ -28,7 +38,6 @@ export default function ProjectPreview({ url, title = 'Project preview', classNa
         'overflow-hidden rounded-xl border border-fg/10 bg-card shadow-[0_10px_40px_-20px_rgba(0,0,0,0.25)]',
         className,
       )}
-      data-protected="true"
     >
       {/* Browser chrome */}
       <div className="flex items-center gap-3 border-b border-fg/8 bg-card/60 px-4 py-3">
@@ -44,57 +53,84 @@ export default function ProjectPreview({ url, title = 'Project preview', classNa
           <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" aria-hidden="true" />
           <span className="truncate font-mono text-fg/70" dir="ltr">{displayUrl}</span>
         </div>
-
-        {/* Reload */}
-        <button
-          type="button"
-          onClick={() => {
-            setLoaded(false)
-            setReloadKey((k) => k + 1)
-          }}
-          className="inline-flex h-7 w-7 items-center justify-center rounded-md text-muted hover:bg-fg/4 hover:text-fg"
-          aria-label="Reload preview"
-          title="Reload"
-        >
-          <RotateCw size={12} strokeWidth={1.75} />
-        </button>
       </div>
 
-      {/* Iframe container with loading state */}
-      <div className="relative bg-bg" style={{ aspectRatio: '16 / 10' }}>
-        {!loaded && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-card/40">
-            <Loader2 size={20} strokeWidth={1.5} className="animate-spin text-brass-500" />
-            <p className="text-xs text-muted">Loading preview…</p>
+      {/* Screenshot (or placeholder) */}
+      <div className="group relative overflow-hidden bg-bg" style={{ aspectRatio: '16 / 10' }}>
+        {!showDesktop ? (
+          // Fallback placeholder — no screenshot available
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-card/40 px-6 text-center">
+            <ImageOff size={22} strokeWidth={1.5} className="text-muted" />
+            <p className="text-sm font-medium text-fg">{title}</p>
+            <a
+              href={url}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="btn-brass !px-4 !py-2 !text-xs"
+            >
+              {'Open Live →'}
+            </a>
           </div>
-        )}
+        ) : (
+          <>
+            {/* Shimmer skeleton until the desktop image loads */}
+            {!loaded && (
+              <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-fg/5 via-fg/10 to-fg/5" />
+            )}
+            <img
+              src={imgSrc}
+              alt={`${title} — desktop`}
+              loading="lazy"
+              decoding="async"
+              onLoad={() => setLoaded(true)}
+              onError={() => setErrored(true)}
+              className={cn(
+                'h-full w-full object-cover object-top transition-[transform,opacity] duration-500 ease-out group-hover:scale-[1.02]',
+                loaded ? 'opacity-100' : 'opacity-0',
+              )}
+            />
 
-        <iframe
-          key={reloadKey}
-          src={url}
-          title={title}
-          loading="lazy"
-          onLoad={() => setLoaded(true)}
-          className="h-full w-full border-0"
-          // Sandbox lets us embed safely; allows scripts but blocks top-level navigation
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
+            {/* Phone mockup with the mobile screenshot — proof of responsive work */}
+            {showPhone && (
+              <div
+                className="absolute bottom-3 right-3 w-[22%] min-w-[78px] max-w-[120px]"
+                style={{ aspectRatio: '9 / 19' }}
+                aria-hidden="true"
+              >
+                <div className="relative h-full w-full rounded-[0.9rem] border-[3px] border-ink-900 bg-ink-900 shadow-[0_12px_30px_-10px_rgba(0,0,0,0.55)]">
+                  {/* Notch */}
+                  <span className="absolute left-1/2 top-1 z-10 h-1 w-7 -translate-x-1/2 rounded-full bg-white/25" />
+                  <div className="h-full w-full overflow-hidden rounded-[0.65rem] bg-bg">
+                    <img
+                      src={mobileSrc}
+                      alt={`${title} — mobile`}
+                      loading="lazy"
+                      decoding="async"
+                      onLoad={() => setMobileLoaded(true)}
+                      onError={() => setMobileErrored(true)}
+                      className={cn(
+                        'h-full w-full object-cover object-top transition-opacity duration-500',
+                        mobileLoaded ? 'opacity-100' : 'opacity-0',
+                      )}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
+        )}
       </div>
 
-      {/* Footer note */}
-      <div className="flex items-center justify-between gap-3 border-t border-fg/8 bg-card/40 px-4 py-2.5 text-xs">
-        <p className="text-muted">
-          Live preview — interactions take place inside the frame.
-        </p>
+      {/* Open Live CTA */}
+      <div className="border-t border-fg/8 bg-card/40 px-4 py-3">
         <a
           href={url}
           target="_blank"
           rel="noreferrer noopener"
-          className="inline-flex items-center gap-1.5 text-muted/70 hover:text-brass-600 dark:hover:text-brass-400"
+          className="btn-brass w-full justify-center !py-2.5"
         >
-          <ExternalLink size={11} strokeWidth={1.75} />
-          <span>new tab</span>
+          <ExternalLink size={14} strokeWidth={1.75} />
+          <span>{'Open Live →'}</span>
         </a>
       </div>
     </motion.div>

@@ -52,9 +52,9 @@ All fonts loaded from Google Fonts. See `index.html` and `tailwind.config.js`.
 ```
 portfolio/
 ├── public/
-│   ├── certificates/          ← drop 9 cert PDFs here (see /src/data/certifications.js for filenames)
+│   ├── certificates/          ← 8 cert files (see /src/data/certifications.js for filenames)
 │   ├── favicon.svg
-│   └── resume.pdf             ← drop your CV PDF here
+│   └── Mohamed_Elkomy_CV.pdf  ← drop your CV PDF here (download CTAs link to this)
 ├── src/
 │   ├── assets/                ← project screenshots, photography
 │   ├── components/
@@ -90,8 +90,7 @@ Edit these files to update the site — no React knowledge needed for content up
 | `skills.js` | Core competencies + Tools + Languages |
 | `experience.js` | Work history with bilingual content |
 | `education.js` | MTI + graduation project |
-| `certifications.js` | 9 certificates with PDF file paths |
-| `services.js` | Freelance offerings + pricing |
+| `certifications.js` | 8 certificates with file paths (major + continuous tiers) |
 
 ---
 
@@ -121,23 +120,48 @@ The `vite.config.js` already includes manual chunking for `react-vendor`, `motio
 
 ---
 
+## 📸 Capturing screenshots
+
+Project detail pages render a static screenshot of each live site (set via
+`scripts/capture-screenshots.mjs`, output to `/public/projects/`).
+
+```bash
+# 1. Install Playwright + the Chromium browser (one-time)
+npm install              # picks up playwright from devDependencies
+npx playwright install chromium
+
+# 2. Capture desktop + mobile shots of every project
+npm run screenshots
+```
+
+The script reads the project list from `src/data/projects.js`, opens each
+`links.live` URL in Chromium, and writes:
+
+- `public/projects/{slug}.jpg` — desktop, 1440×900
+- `public/projects/{slug}-mobile.jpg` — mobile, 375×812
+
+It's **idempotent** — projects with both files already present are skipped, so
+you can re-run it safely after adding new projects. A failing site is logged and
+skipped without crashing the run. Commit the resulting JPGs to version control.
+
+---
+
 ## ✅ Still needed from you
 
 To reach 100%, drop these files into `/public/`:
 
-1. **`resume.pdf`** — your CV PDF (download CTA links to this)
-2. **`certificates/*.pdf`** — 9 certificate PDFs:
+1. **`Mohamed_Elkomy_CV.pdf`** — your CV PDF (all download CTAs link to this)
+2. **`certificates/*`** — 8 certificate files (already in repo):
    - `eraasoft-frontend.pdf`
+   - `route-flutter.pdf`
+   - `iti-embedded.jpeg`
+   - `zewail-ai.jpeg`
    - `mahara-tech-html-css.pdf`
    - `mahara-tech-cybersecurity.pdf`
-   - `yanfaa-html.pdf`
    - `yanfaa-power-bi.pdf`
-   - `route-flutter.pdf`
-   - `zewail-ai.pdf`
-   - `iti-embedded.pdf`
-   - `sololearn-html.pdf`
+   - `yanfaa-html.pdf`
 3. **`og-image.png`** — 1200×630 social share image (use the brass + ink + cream palette)
-4. **(optional) Project screenshots** — in `/public/projects/{slug}.jpg` — used on project detail pages (auto-fallback if missing)
+4. **Project screenshots** — run `npm run screenshots` (see above) to populate `/public/projects/`
 5. **(optional) Profile photo** — in `/src/assets/me.jpg` — for the About section
 
 ---

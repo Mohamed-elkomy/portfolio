@@ -1,37 +1,33 @@
-import { Helmet } from 'react-helmet-async'
-
+import Seo from '@/components/common/Seo'
 import Hero from '@/components/sections/Hero'
 import StatsBar from '@/components/sections/StatsBar'
-import About from '@/components/sections/About'
 import FeaturedProjects from '@/components/sections/FeaturedProjects'
-import Skills from '@/components/sections/Skills'
-import Experience from '@/components/sections/Experience'
-import Education from '@/components/sections/Education'
-import Certifications from '@/components/sections/Certifications'
-import Services from '@/components/sections/Services'
-import Contact from '@/components/sections/Contact'
+import FinalCTA from '@/components/sections/FinalCTA'
+import Marquee from '@/components/common/Marquee'
+import PageTransition from '@/components/common/PageTransition'
+
 import { useLocale } from '@/hooks/useLocale'
+
+const MARQUEE_ITEMS = [
+  'Front-End Developer',
+  'React · Vite · TypeScript',
+  'Available for hire',
+  'Based in Cairo',
+  'Building at Brmja Tech',
+]
 
 export default function Home() {
   const { t } = useLocale()
 
   return (
-    <>
-      <Helmet>
-        <title>{t('meta.title')}</title>
-        <meta name="description" content={t('meta.description')} />
-      </Helmet>
+    <PageTransition>
+      <Seo title={t('meta.title')} description={t('meta.description')} path="/" />
 
       <Hero />
       <StatsBar />
-      <About />
+      <Marquee items={MARQUEE_ITEMS} variant="ink" duration={40} />
       <FeaturedProjects />
-      <Skills />
-      <Experience />
-      <Education />
-      <Certifications />
-      <Services />
-      <Contact />
-    </>
+      <FinalCTA />
+    </PageTransition>
   )
 }

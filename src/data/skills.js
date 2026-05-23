@@ -32,8 +32,6 @@ export const tools = [
   'MySQL',
   'Strapi',
   'Notion',
-  'n8n',
-  'Playwright MCP',
   'Photoshop',
   'Illustrator',
 ]

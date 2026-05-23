@@ -8,8 +8,8 @@ export const experience = [
     type: 'Full-time',
     period: { start: 'Dec 2025', end: 'Present' },
     description: {
-      en: 'Building production React + Vite apps for clients across Egypt and the Gulf — landing pages, multi-language platforms, e-commerce, and ERP systems. Working alongside AI coding tools while owning architecture and code quality.',
-      ar: 'بناء تطبيقات React + Vite للعملاء في مصر والخليج — لاندينج بيجز، منصات متعددة اللغات، تجارة إلكترونية، وأنظمة ERP. شغل بـ AI tools مع امتلاك المعمارية وجودة الكود.',
+      en: 'Building production React + Vite apps for clients across Egypt and the Gulf — landing pages, multi-language platforms, e-commerce, and ERP systems, while owning architecture and code quality.',
+      ar: 'بناء تطبيقات React + Vite للعملاء في مصر والخليج — لاندينج بيجز، منصات متعددة اللغات، تجارة إلكترونية، وأنظمة ERP، مع امتلاك المعمارية وجودة الكود.',
     },
     highlights: [
       { en: 'Shipped 10+ client-facing apps including FIX Store, YourZ, Faya ERP', ar: 'شحنت 10+ تطبيقات للعملاء منها FIX Store و YourZ و Faya ERP' },

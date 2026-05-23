@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, ExternalLink } from 'lucide-react'
 
 import { useLocale } from '@/hooks/useLocale'
 import { cn } from '@/lib/utils'
@@ -16,6 +16,8 @@ export default function ProjectCard({ project, index, variant = 'featured' }) {
 
   const name = project.name[lang] || project.name.en
   const tagline = project.tagline[lang] || project.tagline.en
+  const liveUrl = project.links?.live
+  const displayUrl = liveUrl?.replace(/^https?:\/\//, '').replace(/\/$/, '')
 
   return (
     <motion.article
@@ -27,7 +29,7 @@ export default function ProjectCard({ project, index, variant = 'featured' }) {
     >
       {/* Full-card link wraps everything for a single click target */}
       <Link
-        to={`/projects/${project.slug}`}
+        to={`/work/${project.slug}`}
         aria-label={`View ${name} case study`}
         className="absolute inset-0 z-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-500 focus-visible:ring-inset"
       />
@@ -47,8 +49,33 @@ export default function ProjectCard({ project, index, variant = 'featured' }) {
             <span className="tech-tag uppercase">
               {t(`projects.category.${project.category}`, { defaultValue: project.category })}
             </span>
+            {project.type && (
+              <span
+                className={cn(
+                  'rounded-full border px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide',
+                  project.type === 'website'
+                    ? 'border-brass-500/40 bg-brass-500/12 text-brass-700 dark:text-brass-300'
+                    : 'border-fg/15 text-muted',
+                )}
+              >
+                {t(`projects.type.${project.type}`, { defaultValue: project.type })}
+              </span>
+            )}
             <span className="text-xs text-muted">· {project.year}</span>
           </div>
+
+          {displayUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              dir="ltr"
+              className="pointer-events-auto relative z-10 mt-1.5 inline-flex items-center gap-1 font-mono text-xs text-muted transition-colors hover:text-brass-600 dark:hover:text-brass-400"
+            >
+              <ExternalLink size={11} strokeWidth={1.75} />
+              {displayUrl}
+            </a>
+          )}
 
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-fg/80 md:text-base">
             {tagline}

@@ -2,12 +2,14 @@ import { useMemo } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Calendar, User, Briefcase } from 'lucide-react'
+import { ArrowLeft, Calendar, User, Briefcase, ExternalLink } from 'lucide-react'
 
 import ProjectPreview from '@/components/common/ProjectPreview'
 import ProjectCard from '@/components/common/ProjectCard'
+import PageTransition from '@/components/common/PageTransition'
 import { projects } from '@/data/projects'
 import { useLocale } from '@/hooks/useLocale'
+import { cn } from '@/lib/utils'
 
 export default function ProjectDetail() {
   const { slug } = useParams()
@@ -23,24 +25,24 @@ export default function ProjectDetail() {
     return [...sameCategory, ...fillers].slice(0, 3)
   }, [project])
 
-  if (!project) return <Navigate to="/projects" replace />
+  if (!project) return <Navigate to="/work" replace />
 
   const name = project.name[lang] || project.name.en
   const description = project.description[lang] || project.description.en
   const tagline = project.tagline[lang] || project.tagline.en
 
   return (
-    <>
+    <PageTransition>
       <Helmet>
         <title>{name} — Mohamed Elkomy</title>
         <meta name="description" content={tagline} />
       </Helmet>
 
-      <article className="pt-28 pb-20" data-protected="true">
+      <article className="pt-28 pb-20">
         <div className="container-base max-w-5xl">
           {/* Back link */}
           <Link
-            to="/projects"
+            to="/work"
             className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-brass-600 dark:hover:text-brass-400"
           >
             <ArrowLeft size={14} className={isRTL ? 'rotate-180' : ''} />
@@ -59,7 +61,21 @@ export default function ProjectDetail() {
               <span className="mx-2 opacity-40">·</span>
               {project.year}
             </p>
-            <h1 className="font-serif text-display-lg text-fg">{name}</h1>
+            <div className="flex flex-wrap items-center gap-3">
+              <h1 className="font-serif text-display-lg text-fg">{name}</h1>
+              {project.type && (
+                <span
+                  className={cn(
+                    'rounded-full border px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide',
+                    project.type === 'website'
+                      ? 'border-brass-500/40 bg-brass-500/12 text-brass-700 dark:text-brass-300'
+                      : 'border-fg/15 text-muted',
+                  )}
+                >
+                  {t(`projects.type.${project.type}`, { defaultValue: project.type })}
+                </span>
+              )}
+            </div>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-fg/80">{tagline}</p>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted">
@@ -77,7 +93,26 @@ export default function ProjectDetail() {
             <div className="mb-4 flex items-center justify-between">
               <h2 id="preview-title" className="eyebrow">Live preview</h2>
             </div>
-            <ProjectPreview url={project.links.live} title={`${name} live preview`} />
+            <ProjectPreview slug={project.slug} url={project.links.live} title={name} />
+
+            {project.links.mirrors?.length > 0 && (
+              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+                <span className="eyebrow">{t('projects.otherVersions')}</span>
+                {project.links.mirrors.map((mirror) => (
+                  <a
+                    key={mirror}
+                    href={mirror}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    dir="ltr"
+                    className="inline-flex items-center gap-1 font-mono text-xs text-muted transition-colors hover:text-brass-600 dark:hover:text-brass-400"
+                  >
+                    <ExternalLink size={11} strokeWidth={1.75} />
+                    {mirror.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                  </a>
+                ))}
+              </div>
+            )}
           </section>
 
           {/* Description */}
@@ -149,6 +184,6 @@ export default function ProjectDetail() {
           )}
         </div>
       </article>
-    </>
+    </PageTransition>
   )
 }

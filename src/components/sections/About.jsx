@@ -65,7 +65,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-wrap items-center gap-3 pt-4"
             >
-              <a href="/resume.pdf" download className="btn-brass">
+              <a href="/Mohamed_Elkomy_CV.pdf" download="Mohamed_Elkomy_CV.pdf" target="_blank" rel="noreferrer" className="btn-brass">
                 <Download size={15} strokeWidth={1.75} />
                 {t('about.downloadCV')}
               </a>

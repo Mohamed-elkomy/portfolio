@@ -4,18 +4,28 @@
     "description": "Front-End Developer crafting refined, performant web experiences with React.js."
   },
   "nav": {
+    "home": "Home",
     "work": "Work",
-    "photography": "Photography",
+    "workAll": "All projects",
+    "workEcommerce": "E-commerce",
+    "workSaas": "SaaS",
+    "workEditorial": "Editorial",
+    "workB2b": "B2B",
     "about": "About",
+    "stack": "Stack",
+    "certifications": "Certifications",
     "contact": "Contact",
-    "resume": "Resume"
+    "resume": "Résumé",
+    "available": "Available",
+    "viewWork": "Recent work",
+    "byCategory": "By category"
   },
   "hero": {
     "available": "Available for opportunities",
     "role": "Front-End Developer · React",
     "name": "Mohamed Magdy Elkomy",
     "nameArabic": "محمد مجدي الكومي",
-    "intro": "I craft refined, performant web experiences with React.js. Currently building production apps at <1>{{company}}</1> in Cairo — when I'm not behind a camera or pulling shots from my home espresso setup.",
+    "intro": "Shipping production React apps at <1>{{company}}</1> for clients across MENA. Specialized in internationalization, RTL interfaces, performance optimization, and design-system thinking — production code that scales.",
     "company": "Brmja Tech",
     "viewWork": "View work",
     "getInTouch": "Get in touch",
@@ -37,10 +47,10 @@
   "about": {
     "eyebrow": "About",
     "title": "Engineering meets craft",
-    "p1": "Hi, I'm Mohamed Magdy — most people call me Mo. I graduated from MTI in 2024 with a degree in Computer Science and AI, after exploring everything from embedded systems at ITI to machine learning at Zewail City.",
-    "p2": "Front-end is where I found my home — where engineering meets craft, and where the work reaches real people every day. I care about clean code, smooth interactions, and the small details that make a product feel <1>{{premium}}</1>.",
-    "p2Highlight": "premium",
-    "p3": "Outside of code, I'm probably behind a camera or pulling shots from my MaxxPresso. The same care that goes into a well-framed photograph or a well-pulled espresso belongs in software too.",
+    "p1": "Front-End Developer based in Cairo, working primarily with React, Vite, and TypeScript. Computer Science graduate from MTI with foundations spanning embedded systems, machine learning, and mobile development before settling into the frontend.",
+    "p2": "At <1>{{company}}</1>, I ship client-facing React applications across e-commerce, SaaS, education, and B2B verticals. Comfortable inheriting messy codebases, refactoring at scale, and building greenfield products with a focus on internationalization, RTL, and performance.",
+    "p2Highlight": "Brmja Tech",
+    "p3": "Recent work includes overhauling a 9-language tourism platform, building a premium beauty marketplace landing page, and shipping a feature-rich e-commerce storefront with Redux Toolkit, while owning architecture and code quality end to end.",
     "downloadCV": "Download Résumé",
     "readMore": "Read full story"
   },
@@ -61,7 +71,17 @@
       "retail": "Retail",
       "healthcare": "Healthcare",
       "marketplace": "Marketplace"
-    }
+    },
+    "type": {
+      "landing": "Landing Page",
+      "website": "Website"
+    },
+    "filterType": {
+      "all": "All",
+      "website": "Websites",
+      "landing": "Landing pages"
+    },
+    "otherVersions": "Other versions"
   },
   "skills": {
     "eyebrow": "Toolkit",
@@ -82,15 +102,11 @@
   "certifications": {
     "eyebrow": "Certifications",
     "title": "Continuous learning",
-    "subtitle": "9 certifications from 7 institutions",
+    "subtitle": "8 certifications from 6 institutions",
+    "continuous": "Continuous learning",
+    "continuousSubtitle": "Shorter courses I've picked up along the way.",
     "view": "View certificate",
     "viewAll": "View all certificates"
-  },
-  "services": {
-    "eyebrow": "Services",
-    "title": "Available for hire",
-    "subtitle": "Currently taking on select freelance projects.",
-    "getQuote": "Request a quote"
   },
   "contact": {
     "eyebrow": "Contact",
@@ -111,7 +127,6 @@
     "toggleTheme": "Toggle theme",
     "switchLanguage": "Switch language",
     "menu": "Menu",
-    "close": "Close",
-    "soon": "Coming soon"
+    "close": "Close"
   }
 }

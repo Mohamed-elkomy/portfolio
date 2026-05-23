@@ -4,18 +4,28 @@
     "description": "مطوّر واجهات أمامية بصنع تجارب ويب راقية ومتقنة بـ React.js."
   },
   "nav": {
+    "home": "الرئيسية",
     "work": "الأعمال",
-    "photography": "التصوير",
+    "workAll": "كل المشاريع",
+    "workEcommerce": "تجارة إلكترونية",
+    "workSaas": "SaaS",
+    "workEditorial": "تحريري",
+    "workB2b": "B2B",
     "about": "عني",
+    "stack": "التقنيات",
+    "certifications": "الشهادات",
     "contact": "تواصل",
-    "resume": "السيرة الذاتية"
+    "resume": "السيرة الذاتية",
+    "available": "متاح",
+    "viewWork": "أحدث الأعمال",
+    "byCategory": "حسب الفئة"
   },
   "hero": {
     "available": "متاح للفرص",
     "role": "مطوّر واجهات أمامية · React",
     "name": "محمد مجدي الكومي",
     "nameArabic": "Mohamed Magdy Elkomy",
-    "intro": "بصنع تجارب ويب راقية ومتقنة بـ React.js. حالياً في <1>{{company}}</1> بالقاهرة — ولما مش ورا الشاشة، بكون ورا كاميرا أو بحضّر إسبريسو.",
+    "intro": "بشحن تطبيقات React production لعملاء <1>{{company}}</1> في الشرق الأوسط. متخصّص في i18n و RTL وتحسين الـ performance — كود production يكبر مع المشروع.",
     "company": "Brmja Tech",
     "viewWork": "شاهد الأعمال",
     "getInTouch": "تواصل معي",
@@ -37,10 +47,10 @@
   "about": {
     "eyebrow": "عني",
     "title": "حيث تلتقي الهندسة بالحرفة",
-    "p1": "أنا محمد مجدي — الناس بتناديني Mo. اتخرجت من جامعة MTI سنة 2024 في علوم الحاسب والذكاء الاصطناعي، بعد ما جربت كل حاجة — من الـ embedded systems في ITI، للـ ML في زويل، للـ Flutter في Route Academy.",
-    "p2": "الـ front-end هو اللي لقيت فيه نفسي — هندسة + حرفة، وشغل بيوصل لناس حقيقية كل يوم. بهتم بالكود النضيف، والـ interactions الناعمة، والتفاصيل الصغيرة اللي بتخلي المنتج <1>{{premium}}</1>.",
-    "p2Highlight": "بريميوم",
-    "p3": "بعيد عن الكود، غالباً ورا كاميرا أو بحضّر إسبريسو من الـ MaxxPresso. نفس الـ care اللي بيتحط في صورة مظبوطة أو فنجان قهوة كويس، هو نفسه اللي بيتحط في كود محترم.",
+    "p1": "مطوّر واجهات أمامية مقيم في القاهرة، شغال أساساً بـ React و Vite و TypeScript. خريّج علوم حاسب من جامعة MTI، خلفيتي قبل ما أستقر على الـ frontend شملت الـ embedded systems و الـ machine learning و mobile development.",
+    "p2": "في <1>{{company}}</1> بشحن تطبيقات React للعملاء في قطاعات التجارة الإلكترونية، SaaS، التعليم، و B2B. مرتاح في تسلّم codebases معقدة، الـ refactoring على نطاق واسع، وبناء منتجات من الصفر بتركيز على i18n و RTL و الـ performance.",
+    "p2Highlight": "Brmja Tech",
+    "p3": "من شغلي الأخير: تحديث منصة سياحة بـ 9 لغات، بناء لاندينج فاخر لـ marketplace جمال، وتطوير متجر إلكتروني بـ Redux Toolkit، مع امتلاك المعمارية وجودة الكود بالكامل.",
     "downloadCV": "تنزيل السيرة الذاتية",
     "readMore": "اقرأ القصة كاملة"
   },
@@ -61,7 +71,17 @@
       "retail": "تجزئة",
       "healthcare": "رعاية صحية",
       "marketplace": "سوق إلكتروني"
-    }
+    },
+    "type": {
+      "landing": "لاندينج بيج",
+      "website": "موقع كامل"
+    },
+    "filterType": {
+      "all": "الكل",
+      "website": "مواقع كاملة",
+      "landing": "لاندينج بيجز"
+    },
+    "otherVersions": "نسخ أخرى"
   },
   "skills": {
     "eyebrow": "أدواتي",
@@ -82,15 +102,11 @@
   "certifications": {
     "eyebrow": "الشهادات",
     "title": "التعلّم المستمر",
-    "subtitle": "9 شهادات من 7 جهات",
+    "subtitle": "8 شهادات من 6 جهات",
+    "continuous": "تعلّم مستمر",
+    "continuousSubtitle": "دورات أقصر بضيفها لمساري أول بأول.",
     "view": "عرض الشهادة",
     "viewAll": "عرض كل الشهادات"
-  },
-  "services": {
-    "eyebrow": "الخدمات",
-    "title": "متاح للتعاون",
-    "subtitle": "حالياً بستقبل مشاريع فريلانس مختارة.",
-    "getQuote": "اطلب عرض سعر"
   },
   "contact": {
     "eyebrow": "تواصل",
@@ -111,7 +127,6 @@
     "toggleTheme": "تبديل المظهر",
     "switchLanguage": "تغيير اللغة",
     "menu": "القائمة",
-    "close": "إغلاق",
-    "soon": "قريباً"
+    "close": "إغلاق"
   }
 }

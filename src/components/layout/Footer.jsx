@@ -9,13 +9,12 @@ const ICONS = { Github, Linkedin, Mail, MessageCircle }
 
 const FOOTER_LINKS = [
   [
-    { label: 'nav.work', to: '/projects' },
+    { label: 'nav.work', to: '/work' },
     { label: 'nav.about', to: '/about' },
-    { label: 'nav.contact', to: '/contact' },
   ],
   [
+    { label: 'nav.contact', to: '/contact' },
     { label: 'certifications.viewAll', to: '/certifications' },
-    { label: 'nav.photography', to: '/photography' },
   ],
 ]
 
@@ -27,7 +26,6 @@ export default function Footer() {
     <footer className="border-t border-fg/8 py-12">
       <div className="container-base">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_auto]">
-          {/* Brand */}
           <div>
             <Logo size="md" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
@@ -35,7 +33,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Link columns */}
           {FOOTER_LINKS.map((column, i) => (
             <div key={i}>
               <h4 className="eyebrow mb-4">{i === 0 ? 'Navigate' : 'More'}</h4>
@@ -54,7 +51,6 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Social */}
           <div>
             <h4 className="eyebrow mb-4">{t('contact.social')}</h4>
             <ul className="flex gap-3">
@@ -79,10 +75,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-fg/6 pt-6 text-xs text-muted md:flex-row md:items-center">
-          <p>
-            © {year} Mohamed Magdy Elkomy. {t('footer.rights')}{' '}
-            <span className="opacity-70">All content is protected.</span>
-          </p>
+          <p>© {year} Mohamed Magdy Elkomy. {t('footer.rights')}</p>
           <p className="inline-flex items-center gap-1.5">
             <span>{t('footer.builtWith')}</span>
             <Heart size={11} className="fill-brass-500 text-brass-500" />

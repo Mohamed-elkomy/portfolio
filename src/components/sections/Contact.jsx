@@ -48,6 +48,7 @@ export default function Contact() {
               <p className="text-sm text-muted">{t('contact.or')}</p>
               <a
                 href={`tel:${contact.phone}`}
+                dir="ltr"
                 className="mt-2 inline-block font-mono text-base text-fg transition-colors hover:text-brass-600 dark:hover:text-brass-400"
               >
                 {contact.phoneDisplay}
