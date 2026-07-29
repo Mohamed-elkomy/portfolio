@@ -21,6 +21,173 @@
  */
 
 export const projects = [
+  // ============== SYSTEMS & DASHBOARDS (strongest work — API / back-end integration) ==============
+  {
+    slug: 'my-store',
+    name: { en: 'MyStore', ar: 'ماي ستور' },
+    tagline: {
+      en: 'Education-platform dashboard for managing stores, content, and users — wired to a live API.',
+      ar: 'داشبورد منصة تعليمية لإدارة المتاجر والمحتوى والمستخدمين — مربوط بـ API فعلي.',
+    },
+    description: {
+      en: 'A full front-end dashboard for an education platform. I extended features on the front-end and integrated it end-to-end with the back-end API — role-based views, content and user management, and a fully internationalized Arabic/English RTL interface.',
+      ar: 'داشبورد أمامي كامل لمنصة تعليمية. طوّرت وأضفت مميزات في الواجهة وربطتها بالكامل بالـ Back-end API — صلاحيات، إدارة محتوى ومستخدمين، وواجهة عربي/إنجليزي RTL.',
+    },
+    type: 'website', category: 'saas',
+    tech: ['React', 'Redux Toolkit', 'Axios', 'i18next', 'Tailwind'],
+    links: { live: 'https://dashboard.mystore.education/login' }, featured: true, year: 2026, role: 'Front-End + API Integration',
+  },
+  {
+    slug: 'albaraqawy-erp',
+    name: { en: 'Albaraqawy ERP', ar: 'الباراقاوي ERP' },
+    tagline: {
+      en: 'Full ERP for business operations, inventory, and accounts — front-end wired to the API.',
+      ar: 'نظام ERP متكامل لإدارة العمليات والمخزون والحسابات — واجهة مربوطة بالـ API.',
+    },
+    description: {
+      en: 'An enterprise ERP front-end covering business operations, inventory, and accounting modules. I built and refined the interface and integrated it with the back-end API, with full Arabic/English support.',
+      ar: 'واجهة ERP للمؤسسات تغطي العمليات والمخزون والحسابات. بنيت وحسّنت الواجهة وربطتها بالـ Back-end API، بدعم كامل للعربي والإنجليزي.',
+    },
+    type: 'website', category: 'saas',
+    tech: ['React', 'Axios', 'i18next', 'Tailwind'],
+    links: { live: 'https://app-albarqawy.brmja.cloud/' }, featured: true, year: 2026, role: 'Front-End + API Integration',
+  },
+  {
+    slug: 'mashora',
+    name: { en: 'Mashora', ar: 'مشورة' },
+    tagline: {
+      en: 'Consultations platform with real auth — login, signup, OTP, and password reset.',
+      ar: 'منصة استشارات بمصادقة حقيقية — دخول، إنشاء حساب، OTP، واستعادة كلمة السر.',
+    },
+    description: {
+      en: 'A complete consultations platform with a real authentication flow (login, register, OTP, forgot/reset password), services, detailed articles, consultations, profiles, FAQ, and testimonials — connected to a live back-end.',
+      ar: 'منصة استشارات كاملة بنظام مصادقة حقيقي (دخول، تسجيل، OTP، نسيت/استعادة كلمة السر)، خدمات، مقالات بتفاصيل، استشارات، بروفايلات، FAQ، وآراء العملاء — مربوطة بـ Back-end فعلي.',
+    },
+    type: 'website', category: 'saas',
+    tech: ['React', 'Axios', 'i18next', 'Bootstrap', 'Framer Motion', 'Yup'],
+    links: { live: 'https://mashouraksa.com/' }, featured: true, year: 2026, role: 'Front-End + API Integration',
+  },
+  {
+    slug: 'medica-overseas',
+    name: { en: 'Medica Overseas', ar: 'ميديكا أوفرسيز' },
+    tagline: {
+      en: 'Healthcare providers portal built from scratch and wired to a live API.',
+      ar: 'بوابة مزوّدي خدمات صحية من الصفر ومربوطة بـ API فعلي.',
+    },
+    description: {
+      en: 'A providers portal for a medical-services company, built from scratch on the front-end and integrated with the back-end API — authentication, provider dashboards, and a fully responsive interface.',
+      ar: 'بوابة مزوّدين لشركة خدمات طبية، مبنية من الصفر على الواجهة ومربوطة بالـ Back-end API — مصادقة، داشبوردات للمزوّدين، وواجهة متجاوبة بالكامل.',
+    },
+    type: 'website', category: 'healthcare',
+    tech: ['React', 'Axios', 'i18next', 'Tailwind'],
+    links: { live: 'https://providers.medicaoverseas.com/login' }, featured: true, year: 2026, role: 'Front-End (from scratch) + API',
+  },
+  {
+    slug: 'professional-lawyer',
+    name: { en: 'Professional Lawyer', ar: 'بروفيشنال لوير' },
+    tagline: {
+      en: 'Legal-services platform built from scratch — front-end plus API integration.',
+      ar: 'منصة خدمات قانونية من الصفر — واجهة + ربط API.',
+    },
+    description: {
+      en: 'A legal-services platform I built from scratch on the front-end and connected to a live API, presenting services, content, and client flows in a clean, responsive, bilingual interface.',
+      ar: 'منصة خدمات قانونية بنيتها من الصفر على الواجهة وربطتها بـ API فعلي، تعرض الخدمات والمحتوى وتدفّقات العملاء بواجهة نظيفة متجاوبة وثنائية اللغة.',
+    },
+    type: 'website', category: 'saas',
+    tech: ['React', 'Axios', 'i18next', 'Tailwind'],
+    links: { live: 'https://professional-lawyer.com/' }, featured: false, year: 2026, role: 'Front-End (from scratch) + API',
+  },
+  {
+    slug: 'khadamat',
+    name: { en: 'Khadamat', ar: 'خدمات منطقتي' },
+    tagline: {
+      en: 'Services-management dashboard with branch admin — front-end wired to the API.',
+      ar: 'داشبورد إدارة خدمات مع أدمن فروع — واجهة مربوطة بالـ API.',
+    },
+    description: {
+      en: 'A services-management dashboard with branch and admin logins, connected to a live back-end API. I refined the interface and handled the integration across the admin views.',
+      ar: 'داشبورد إدارة خدمات بدخول للفروع والأدمن، مربوط بـ Back-end API فعلي. حسّنت الواجهة وتوليت الربط عبر شاشات الأدمن.',
+    },
+    type: 'website', category: 'saas',
+    tech: ['React', 'Axios', 'i18next', 'Tailwind'],
+    links: { live: 'https://main-branches-dashboard.khadmatmantakty.com/login' }, featured: false, year: 2026, role: 'Front-End + API Integration',
+  },
+  {
+    slug: 'ne3naa3a',
+    name: { en: 'Ne3naa3a', ar: 'نعناعة' },
+    tagline: {
+      en: 'Management system front-end connected to a live back-end API.',
+      ar: 'واجهة نظام إدارة مربوطة بـ Back-end API فعلي.',
+    },
+    description: {
+      en: 'A management-system front-end where I extended features and integrated the interface with the back-end API, keeping the UI responsive and bilingual.',
+      ar: 'واجهة نظام إدارة أضفت فيها مميزات وربطتها بالـ Back-end API، مع واجهة متجاوبة وثنائية اللغة.',
+    },
+    type: 'website', category: 'saas',
+    tech: ['React', 'Axios', 'i18next', 'Tailwind'],
+    links: { live: 'https://ne3naa3a-system-front.vercel.app/' }, featured: false, year: 2026, role: 'Front-End + API Integration',
+  },
+  {
+    slug: 'realstate-dashboard',
+    name: { en: 'RealState', ar: 'ريل ستيت' },
+    tagline: {
+      en: 'Real-estate mobile-app dashboard — feature work plus API integration.',
+      ar: 'داشبورد تطبيق عقارات موبايل — تطوير مميزات وربط API.',
+    },
+    description: {
+      en: 'A real-estate management dashboard (mobile-app companion) where I extended features and integrated the front-end with the back-end API.',
+      ar: 'داشبورد إدارة عقارات (مكمّل لتطبيق موبايل) طوّرت فيه مميزات وربطت الواجهة بالـ Back-end API.',
+    },
+    type: 'website', category: 'saas',
+    tech: ['React', 'Axios', 'i18next', 'Tailwind'],
+    links: { live: 'https://xn--mgb9a0bp.com/' }, featured: false, year: 2026, role: 'Front-End + API Integration',
+  },
+  {
+    slug: 'elra3y-center',
+    name: { en: 'Elra3y Center', ar: 'مركز الراعي' },
+    tagline: {
+      en: 'Student-management system front-end connected to the platform API.',
+      ar: 'واجهة نظام إدارة طلاب مربوطة بـ API المنصة.',
+    },
+    description: {
+      en: 'A student-management system where I extended the front-end and integrated it with the back-end API — student records and platform flows in a responsive interface.',
+      ar: 'نظام إدارة طلاب طوّرت واجهته وربطتها بالـ Back-end API — سجلات الطلاب وتدفّقات المنصة بواجهة متجاوبة.',
+    },
+    type: 'website', category: 'saas',
+    tech: ['React', 'Axios', 'i18next', 'Tailwind'],
+    links: { live: 'https://elra3y.online/' }, featured: false, year: 2026, role: 'Front-End + API Integration',
+  },
+  {
+    slug: 'nous',
+    name: { en: 'Nous', ar: 'نوس' },
+    tagline: {
+      en: 'Back-end integration engagement — wiring a live front-end to its API.',
+      ar: 'مهمة ربط Back-end — توصيل واجهة حيّة بالـ API بتاعها.',
+    },
+    description: {
+      en: 'A focused back-end integration engagement: connecting an existing front-end to its API, handling data flow, auth, and error states against a live service.',
+      ar: 'مهمة ربط Back-end مركّزة: توصيل واجهة موجودة بالـ API بتاعها، مع التعامل مع تدفّق البيانات والمصادقة وحالات الخطأ مقابل خدمة حيّة.',
+    },
+    type: 'website', category: 'saas',
+    tech: ['React', 'Axios', 'REST API'],
+    links: { live: 'https://nous.sa/' }, featured: false, year: 2026, role: 'API Integration',
+  },
+  {
+    slug: 'takween',
+    name: { en: 'Takween', ar: 'تكوين' },
+    tagline: {
+      en: 'Product landing wired to a live API on a custom domain.',
+      ar: 'لاندينج منتج مربوط بـ API فعلي على دومين مخصّص.',
+    },
+    description: {
+      en: 'A marketing landing for Takween built and connected to a live API for its dynamic content, deployed on a custom domain.',
+      ar: 'لاندينج تسويقي لـ تكوين مبني ومربوط بـ API فعلي للمحتوى الديناميكي، منشور على دومين مخصّص.',
+    },
+    type: 'landing', category: 'saas',
+    tech: ['React', 'Axios', 'Tailwind'],
+    links: { live: 'https://takween.live/' }, featured: false, year: 2026, role: 'Front-End + API Integration',
+  },
+
   // ============== FEATURED (Home page) ==============
   {
     slug: 'fix-store',
@@ -293,5 +460,20 @@ export const projects = [
   },
 ]
 
-export const featuredProjects = projects.filter((p) => p.featured)
-export const galleryProjects = projects.filter((p) => !p.featured)
+// Featured is a curated, ordered list (systems lead — strongest proof of work)
+const FEATURED_SLUGS = [
+  'my-store',
+  'albaraqawy-erp',
+  'mashora',
+  'medica-overseas',
+  'fix-store',
+  'my-tours',
+  'yourz',
+  'professional-lawyer',
+]
+
+export const featuredProjects = FEATURED_SLUGS
+  .map((slug) => projects.find((p) => p.slug === slug))
+  .filter(Boolean)
+
+export const galleryProjects = projects.filter((p) => !FEATURED_SLUGS.includes(p.slug))

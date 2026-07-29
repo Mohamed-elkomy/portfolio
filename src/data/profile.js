@@ -58,7 +58,7 @@ export const githubStats = {
 
 // Aggregate stats for the StatsBar section
 export const aggregateStats = [
-  { id: 'projects', label: 'projects shipped', value: 25, suffix: '+' },
+  { id: 'projects', label: 'projects shipped', value: 38, suffix: '+' },
   { id: 'repos', label: 'public repos', value: 97 },
   { id: 'contributions', label: 'contributions / year', value: 370 },
   { id: 'certificates', label: 'certifications', value: 8 },
