@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, MessageCircle, ArrowUpRight } from 'lucide-react'
+import { Github, Linkedin, Mail, MessageCircle, ArrowUpRight, Send, CheckCircle2 } from 'lucide-react'
 
 import Seo from '@/components/common/Seo'
 import PageTransition from '@/components/common/PageTransition'
@@ -11,6 +12,21 @@ const ICONS = { Github, Linkedin, Mail, MessageCircle }
 
 export default function ContactPage() {
   const { t } = useLocale()
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState('idle') // idle | submitting | success | error
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (!formData.name || !formData.email || !formData.message) return
+
+    setStatus('submitting')
+    // Simulate API call / EmailJS payload
+    setTimeout(() => {
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+      setTimeout(() => setStatus('idle'), 4000)
+    }, 1000)
+  }
 
   return (
     <PageTransition>
@@ -73,50 +89,116 @@ export default function ContactPage() {
           </motion.div>
 
           <div className="grid gap-12 md:grid-cols-2">
-            {/* Social grid */}
+            {/* Direct Message Form */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
+              className="rounded-xl border border-fg/8 bg-card/40 p-6 backdrop-blur-sm"
             >
-              <p className="eyebrow mb-5">{t('contact.social')}</p>
-              <ul className="space-y-3">
-                {social.map((s) => {
-                  const Icon = ICONS[s.icon] || Mail
-                  return (
-                    <li key={s.id}>
-                      <a
-                        href={s.url}
-                        target={s.url.startsWith('http') ? '_blank' : undefined}
-                        rel="noreferrer noopener"
-                        className="group flex items-center justify-between gap-3 border-b border-fg/8 py-3 transition-colors hover:border-brass-500/40"
-                      >
-                        <span className="flex items-center gap-3">
-                          <Icon
-                            size={16}
-                            strokeWidth={1.5}
-                            className="text-muted transition-colors group-hover:text-brass-600 dark:group-hover:text-brass-400"
-                          />
-                          <span className="text-sm font-medium text-fg">{s.label}</span>
-                        </span>
-                        <ArrowUpRight
-                          size={12}
-                          strokeWidth={2}
-                          className="text-muted opacity-50 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
-                        />
-                      </a>
-                    </li>
-                  )
-                })}
-              </ul>
+              <p className="eyebrow mb-4">Send a Message</p>
+              
+              {status === 'success' ? (
+                <div className="flex items-center gap-3 rounded-lg border border-brass-500/30 bg-brass-500/10 p-4 text-sm text-brass-700 dark:text-brass-300">
+                  <CheckCircle2 size={20} className="shrink-0" />
+                  <span>Thank you! Your message has been sent successfully.</span>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="mb-1 block text-xs font-medium text-muted">
+                      Your Name
+                    </label>
+                    <input
+                      id="name"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Jane Doe"
+                      className="w-full rounded-md border border-fg/10 bg-bg px-3 py-2 text-sm text-fg outline-none transition-colors focus:border-brass-500"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="mb-1 block text-xs font-medium text-muted">
+                      Email Address
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="jane@example.com"
+                      className="w-full rounded-md border border-fg/10 bg-bg px-3 py-2 text-sm text-fg outline-none transition-colors focus:border-brass-500"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="mb-1 block text-xs font-medium text-muted">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      required
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Tell me about your project or inquiry..."
+                      className="w-full rounded-md border border-fg/10 bg-bg px-3 py-2 text-sm text-fg outline-none transition-colors focus:border-brass-500"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={status === 'submitting'}
+                    className="btn-brass w-full justify-center gap-2"
+                  >
+                    {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                    <Send size={14} />
+                  </button>
+                </form>
+              )}
             </motion.div>
 
-            {/* Response time */}
+            {/* Social grid & info */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
+              className="space-y-8"
             >
+              <div>
+                <p className="eyebrow mb-5">{t('contact.social')}</p>
+                <ul className="space-y-3">
+                  {social.map((s) => {
+                    const Icon = ICONS[s.icon] || Mail
+                    return (
+                      <li key={s.id}>
+                        <a
+                          href={s.url}
+                          target={s.url.startsWith('http') ? '_blank' : undefined}
+                          rel="noreferrer noopener"
+                          className="group flex items-center justify-between gap-3 border-b border-fg/8 py-3 transition-colors hover:border-brass-500/40"
+                        >
+                          <span className="flex items-center gap-3">
+                            <Icon
+                              size={16}
+                              strokeWidth={1.5}
+                              className="text-muted transition-colors group-hover:text-brass-600 dark:group-hover:text-brass-400"
+                            />
+                            <span className="text-sm font-medium text-fg">{s.label}</span>
+                          </span>
+                          <ArrowUpRight
+                            size={12}
+                            strokeWidth={2}
+                            className="text-muted opacity-50 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                          />
+                        </a>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+
               <div className="rounded-lg border border-fg/8 bg-card p-5">
                 <p className="eyebrow mb-2">Response time</p>
                 <p className="text-sm text-fg/80">Usually within 24 hours, Cairo time (UTC+2).</p>

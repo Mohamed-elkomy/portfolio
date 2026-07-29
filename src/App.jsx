@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Outlet, useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { AnimatePresence } from 'framer-motion'
@@ -10,15 +10,24 @@ import ProtectionToast from '@/components/common/ProtectionToast'
 import CustomCursor from '@/components/common/CustomCursor'
 import ScrollProgress from '@/components/common/ScrollProgress'
 
-import Home from '@/pages/Home'
-import Work from '@/pages/Projects'
-import ProjectDetail from '@/pages/ProjectDetail'
-import AboutPage from '@/pages/AboutPage'
-import CertificationsPage from '@/pages/CertificationsPage'
-import ContactPage from '@/pages/ContactPage'
-import NotFound from '@/pages/NotFound'
+const Home = lazy(() => import('@/pages/Home'))
+const Work = lazy(() => import('@/pages/Projects'))
+const ProjectDetail = lazy(() => import('@/pages/ProjectDetail'))
+const AboutPage = lazy(() => import('@/pages/AboutPage'))
+const CertificationsPage = lazy(() => import('@/pages/CertificationsPage'))
+const ContactPage = lazy(() => import('@/pages/ContactPage'))
+const NotFound = lazy(() => import('@/pages/NotFound'))
 
 import { useContentProtection } from '@/hooks/useContentProtection'
+
+/** Loading fallback for dynamic route chunks */
+function PageLoader() {
+  return (
+    <div className="flex min-h-[60vh] w-full items-center justify-center">
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-brass-500 border-t-transparent" />
+    </div>
+  )
+}
 
 /** Scroll to top on every route change */
 function ScrollToTop() {
@@ -40,9 +49,11 @@ function Layout() {
       <CustomCursor />
       <Navbar />
       <main id="main" className="flex-1">
-        <AnimatePresence mode="wait" initial={false}>
-          <Outlet key={location.pathname} />
-        </AnimatePresence>
+        <Suspense fallback={<PageLoader />}>
+          <AnimatePresence mode="wait" initial={false}>
+            <Outlet key={location.pathname} />
+          </AnimatePresence>
+        </Suspense>
       </main>
       <Footer />
       <ProtectionToast toast={toast} onDismiss={dismiss} />

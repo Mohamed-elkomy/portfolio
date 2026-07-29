@@ -50,7 +50,7 @@ export default function AboutPage() {
                 className="text-base leading-loose text-fg/85 md:text-lg"
               >
                 I care about clean code, smooth interactions, and the small details that make a product feel{' '}
-                <em className="font-serif italic text-brass-600 dark:text-brass-400">production-grade</em>. Architecture that scales, performance that holds up under real traffic, and accessibility that isn't an afterthought.
+                <em className="font-serif italic text-brass-600 dark:text-brass-400">production-grade</em>. Architecture that scales, performance that holds up under real traffic, and accessibility that isn&apos;t an afterthought.
               </motion.p>
 
               <motion.p

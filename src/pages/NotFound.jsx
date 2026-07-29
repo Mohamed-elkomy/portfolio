@@ -7,7 +7,7 @@ import PageTransition from '@/components/common/PageTransition'
 import { useLocale } from '@/hooks/useLocale'
 
 export default function NotFound() {
-  const { t, isRTL } = useLocale()
+  const { isRTL } = useLocale()
 
   return (
     <PageTransition>
@@ -25,7 +25,7 @@ export default function NotFound() {
           <p className="eyebrow mb-3">404</p>
           <h1 className="font-serif text-display-xl text-fg">Page not found</h1>
           <p className="mt-4 max-w-md mx-auto text-muted">
-            The page you're looking for doesn't exist, was moved, or never existed at all.
+            The page you&apos;re looking for doesn&apos;t exist, was moved, or never existed at all.
           </p>
           <Link to="/" className="btn-brass mt-8 group">
             <ArrowLeft size={14} className={isRTL ? 'rotate-180' : ''} />

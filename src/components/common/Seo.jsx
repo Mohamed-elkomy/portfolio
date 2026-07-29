@@ -8,8 +8,9 @@ const OG_IMAGE = `${SITE_URL}/og-image.png`
  * Card tags so the portfolio previews cleanly on LinkedIn / Twitter / WhatsApp.
  * All pages share one og:image (/public/og-image.png, 1200×630).
  */
-export default function Seo({ title, description, path = '/' }) {
+export default function Seo({ title, description, path = '/', image }) {
   const url = `${SITE_URL}${path}`
+  const ogImage = image ? (image.startsWith('http') ? image : `${SITE_URL}${image}`) : OG_IMAGE
 
   return (
     <Helmet>
@@ -19,7 +20,7 @@ export default function Seo({ title, description, path = '/' }) {
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       {description && <meta property="og:description" content={description} />}
-      <meta property="og:image" content={OG_IMAGE} />
+      <meta property="og:image" content={ogImage} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
 
@@ -27,7 +28,7 @@ export default function Seo({ title, description, path = '/' }) {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       {description && <meta name="twitter:description" content={description} />}
-      <meta name="twitter:image" content={OG_IMAGE} />
+      <meta name="twitter:image" content={ogImage} />
     </Helmet>
   )
 }

@@ -18,14 +18,21 @@ export default function ProjectsGallery() {
     const set = new Set(projects.map((p) => p.category))
     return ['all', ...Array.from(set)]
   }, [])
+
+  const techTags = useMemo(() => {
+    const set = new Set(projects.flatMap((p) => p.tech || []))
+    return ['all', ...Array.from(set)]
+  }, [])
+
   const TYPES = ['all', 'website', 'landing']
 
-  // Filters are driven by URL params (?category= & ?type=) so the Navbar
-  // dropdown links land on the right filter and the view is shareable.
+  // Filters are driven by URL params (?category=, ?type=, & ?tech=)
   const requestedCat = searchParams.get('category')
   const filter = requestedCat && categories.includes(requestedCat) ? requestedCat : 'all'
   const requestedType = searchParams.get('type')
   const typeFilter = TYPES.includes(requestedType) ? requestedType : 'all'
+  const requestedTech = searchParams.get('tech')
+  const techFilter = requestedTech && techTags.includes(requestedTech) ? requestedTech : 'all'
 
   // Merge a single param into the URL, dropping it when set back to 'all'.
   const setParam = (key, value) => {
@@ -36,15 +43,16 @@ export default function ProjectsGallery() {
   }
   const setFilter = (cat) => setParam('category', cat)
   const setTypeFilter = (type) => setParam('type', type)
+  const setTechFilter = (tech) => setParam('tech', tech)
 
-  const matches = (p) =>
-    (filter === 'all' || p.category === filter) &&
-    (typeFilter === 'all' || p.type === typeFilter)
-
-  const filtered = useMemo(
-    () => projects.filter(matches),
-    [filter, typeFilter],
-  )
+  const filtered = useMemo(() => {
+    return projects.filter((p) => {
+      const matchCat = filter === 'all' || p.category === filter
+      const matchType = typeFilter === 'all' || p.type === typeFilter
+      const matchTech = techFilter === 'all' || (p.tech && p.tech.includes(techFilter))
+      return matchCat && matchType && matchTech
+    })
+  }, [filter, typeFilter, techFilter])
 
   const countFor = (type) =>
     projects.filter((p) => type === 'all' || p.type === type).length
@@ -66,7 +74,7 @@ export default function ProjectsGallery() {
           />
 
           {/* Type segmented control — Landing pages vs full Websites */}
-          <div className="mb-4 inline-flex rounded-lg border border-fg/10 bg-card/40 p-1">
+          <div className="mb-4 inline-flex flex-wrap rounded-lg border border-fg/10 bg-card/40 p-1">
             {TYPES.map((type) => (
               <button
                 key={type}
@@ -86,7 +94,7 @@ export default function ProjectsGallery() {
           </div>
 
           {/* Category filter chips */}
-          <div className="mb-8 flex flex-wrap gap-2">
+          <div className="mb-4 flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -103,6 +111,26 @@ export default function ProjectsGallery() {
                 <span className="ms-1.5 text-[10px] opacity-60">
                   ({projects.filter((p) => (cat === 'all' || p.category === cat) && (typeFilter === 'all' || p.type === typeFilter)).length})
                 </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Technology filter chips */}
+          <div className="mb-8 flex flex-wrap items-center gap-1.5 border-t border-fg/5 pt-4">
+            <span className="me-2 text-xs font-medium text-muted">Tech:</span>
+            {techTags.slice(0, 10).map((tech) => (
+              <button
+                key={tech}
+                type="button"
+                onClick={() => setTechFilter(tech)}
+                className={cn(
+                  'rounded px-2.5 py-1 text-[11px] font-mono transition-all',
+                  techFilter === tech
+                    ? 'bg-brass-500 text-cream-100 font-semibold'
+                    : 'bg-card/60 text-muted hover:bg-fg/10 hover:text-fg',
+                )}
+              >
+                {tech === 'all' ? 'All Tech' : tech}
               </button>
             ))}
           </div>
