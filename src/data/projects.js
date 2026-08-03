@@ -242,11 +242,7 @@ export const projects = [
     category: 'editorial',
     tech: ['React', 'Tailwind', 'shadcn/ui', 'Framer Motion', 'i18next'],
     links: {
-      live: 'https://yourz-launchpad.vercel.app/',
-      mirrors: [
-        'https://landing-yourz-app.vercel.app/',
-        'https://yourz-launchpad-0dc949f4.vercel.app/',
-      ],
+      live: 'https://yo-urz.com/',
     },
     featured: true,
     year: 2026,
