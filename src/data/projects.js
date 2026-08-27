@@ -54,6 +54,21 @@ export const projects = [
   },
   {
     slug: 'mashora',
+    caseStudy: {
+      challenge: {
+        en: 'A Saudi consultations platform needed a real, production-grade authentication flow — not a mock. Login, registration, OTP verification, forgot-password and reset all had to work against a live back-end, in Arabic and English, with every error state the API could return handled and explained to the user in their own language.',
+        ar: 'منصة استشارات سعودية كانت محتاجة نظام مصادقة حقيقي جاهز للإنتاج — مش واجهة شكلية. دخول، تسجيل، تأكيد OTP، نسيت كلمة السر، وإعادة تعيينها — كلها لازم تشتغل مع باك إند فعلي، بالعربي والإنجليزي، وكل حالة خطأ ممكن الـ API يرجّعها تتعالج وتتشرح للمستخدم بلغته.',
+      },
+      approach: [
+        { en: 'Centralized every API call behind one Axios instance with a shared base URL and interceptors, so authentication headers and error handling live in one place instead of being repeated per screen.', ar: 'جمّعت كل نداءات الـ API خلف Axios instance واحدة بـ base URL و interceptors مشتركة، عشان هيدرات المصادقة ومعالجة الأخطاء تبقى في مكان واحد بدل ما تتكرر في كل شاشة.' },
+        { en: 'Validated every form with Yup schemas defined once and reused, so the same rule produces the same message in both languages and the OTP and reset steps cannot be reached out of order.', ar: 'تحققت من كل فورم بـ Yup schemas متعرّفة مرة واحدة ومعاد استخدامها، عشان نفس القاعدة تطلع نفس الرسالة باللغتين، وخطوات الـ OTP وإعادة التعيين مينفعش تتفتح بترتيب غلط.' },
+        { en: 'Built the whole flow RTL-first with i18next rather than adding Arabic afterwards — the layout is mirrored by direction, not by overrides.', ar: 'بنيت الفلو كله RTL-first بـ i18next بدل ما أضيف العربي في الآخر — الليأوت بيتعكس بالاتجاه نفسه، مش بـ overrides.' },
+      ],
+      result: {
+        en: 'Live in production at mashouraksa.com serving Saudi users, with the full auth flow, services, articles, consultations and profiles running against the live back-end.',
+        ar: 'شغالة في الإنتاج على mashouraksa.com وبتخدم مستخدمين سعوديين، بنظام المصادقة الكامل والخدمات والمقالات والاستشارات والبروفايلات كلها مربوطة بالباك إند الفعلي.',
+      },
+    },
     name: { en: 'Mashora', ar: 'مشورة' },
     tagline: {
       en: 'Consultations platform with real auth — login, signup, OTP, and password reset.',
@@ -191,6 +206,22 @@ export const projects = [
   // ============== FEATURED (Home page) ==============
   {
     slug: 'fix-store',
+    caseStudy: {
+      challenge: {
+        en: 'A phone and accessories storefront built from scratch, where one product can exist in many variants — colour, storage, condition — and the catalogue has to stay filterable and shareable. A naive implementation ends up with variant logic copy-pasted into every card, modal and detail page.',
+        ar: 'متجر موبايلات وإكسسوارات مبني من الصفر، والمنتج الواحد فيه ممكن يبقى بعدة variants — لون، مساحة، حالة — والكتالوج لازم يفضل قابل للفلترة والمشاركة. التنفيذ الساذج بينتهي بمنطق الـ variants متكرر في كل كارت ومودال وصفحة تفاصيل.',
+      },
+      approach: [
+        { en: 'Modelled cart and catalogue state in Redux Toolkit slices so the same state drives the grid, the modal and the detail page — one source of truth instead of three.', ar: 'صمّمت حالة الكارت والكتالوج في Redux Toolkit slices عشان نفس الحالة تشغّل الجريد والمودال وصفحة التفاصيل — مصدر واحد للحقيقة بدل تلاتة.' },
+        { en: 'Wrote a variant renderer that picks its own control from the option type — colour swatches for colours, pill selectors for the rest — so adding a new variant type needs no new component.', ar: 'كتبت variant renderer بيختار الكونترول المناسب حسب نوع الخيار — swatches للألوان و pills للباقي — عشان إضافة نوع variant جديد متحتاجش كومبوننت جديد.' },
+        { en: 'Kept category and brand filters in URL params so any filtered view can be shared or reloaded, and extracted the Embla autoplay behaviour into a reusable AutoScroll hook.', ar: 'خليت فلاتر الفئة والبراند في الـ URL params عشان أي عرض مفلتر يتشارك أو يتعمله ريفريش، وفصلت سلوك Embla autoplay في hook قابل لإعادة الاستخدام.' },
+        { en: 'Documented the primitives as an internal design system page so the patterns stay consistent as the store grows.', ar: 'وثّقت العناصر الأساسية في صفحة design system داخلية عشان الأنماط تفضل متسقة مع نمو المتجر.' },
+      ],
+      result: {
+        en: 'A complete storefront — home, products, categories, brands, FAQ, about and contact — running on one shared state layer, with a documented design system and a bilingual RTL/LTR interface.',
+        ar: 'متجر متكامل — الرئيسية والمنتجات والفئات والبراندات والأسئلة الشائعة وعن ونتواصل — شغال على طبقة حالة واحدة مشتركة، بـ design system موثّق وواجهة ثنائية اللغة RTL/LTR.',
+      },
+    },
     name: { en: 'FIX Store', ar: 'FIX Store' },
     tagline: {
       en: 'Feature-rich React e-commerce with Redux Toolkit and Embla carousel.',
@@ -206,10 +237,25 @@ export const projects = [
     links: { live: 'https://fix-store.vercel.app/' },
     featured: true,
     year: 2026,
-    role: 'Lead Developer',
+    role: 'Front-End — built from scratch',
   },
   {
     slug: 'my-tours',
+    caseStudy: {
+      challenge: {
+        en: 'A 9-language tourism and rental platform was handed to me after the original developer left. The production build was breaking, the authentication and storage layers were inconsistent across locales, and there was no error handling — a single thrown component took the whole page down. Nobody on the team knew the codebase.',
+        ar: 'منصة سياحة وإيجار بـ 9 لغات اتسلمتها بعد ما المطور الأصلي مشي. البِلد بتاع الإنتاج كان بيقع، وطبقات المصادقة والتخزين مش متسقة بين اللغات، ومفيش أي معالجة أخطاء — كومبوننت واحد بيرمي خطأ كان بيوقّع الصفحة كلها. ومحدش في التيم كان فاهم الكود.',
+      },
+      approach: [
+        { en: 'Audited the codebase file by file before changing anything — mapped what each module actually did and where the locales diverged, rather than patching symptoms.', ar: 'راجعت الكود ملف ملف قبل ما أغيّر أي حاجة — رسمت كل موديول بيعمل إيه وفين اللغات بتختلف، بدل ما أرقّع الأعراض.' },
+        { en: 'Fixed 37+ files across authentication, the storage layer and the production build, and replaced the scattered localStorage calls with one shared storage utility so every locale behaves the same.', ar: 'صلّحت أكتر من 37 ملف في المصادقة وطبقة التخزين وبِلد الإنتاج، واستبدلت نداءات localStorage المبعثرة بـ utility واحدة مشتركة عشان كل اللغات تتصرف بنفس الطريقة.' },
+        { en: 'Added an Error Boundary so a failure in one component degrades that component only, plus shimmer skeletons and animated page transitions to cover the perceived latency on slow connections.', ar: 'ضفت Error Boundary عشان عطل أي كومبوننت يفضل محصور فيه، وضفت shimmer skeletons وانتقالات متحركة بين الصفحات تغطي بطء التحميل على النت الضعيف.' },
+      ],
+      result: {
+        en: 'The platform is live and maintained at mytourshub.com across all 9 locales with a stable production build. The audit notes became the reference the team now uses for the codebase.',
+        ar: 'المنصة شغالة ومتابَعة على mytourshub.com بكل الـ 9 لغات ببِلد إنتاج مستقر. وملاحظات المراجعة بقت هي المرجع اللي التيم بيرجعله في الكود ده.',
+      },
+    },
     name: { en: 'MyTours', ar: 'MyTours' },
     tagline: {
       en: 'Tourism & rental platform supporting 9 languages with full RTL handling.',
@@ -225,7 +271,7 @@ export const projects = [
     links: { live: 'https://mytourshub.com/' },
     featured: true,
     year: 2026,
-    role: 'Maintainer & Architect',
+    role: 'Inherited codebase — audit, rescue & feature work',
   },
   {
     slug: 'yourz',

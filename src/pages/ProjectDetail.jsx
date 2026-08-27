@@ -30,6 +30,11 @@ export default function ProjectDetail() {
   const name = project.name[lang] || project.name.en
   const description = project.description[lang] || project.description.en
   const tagline = project.tagline[lang] || project.tagline.en
+  const cs = project.caseStudy
+  const pick = (o) => (o ? o[lang] || o.en : '')
+  const csLabels = lang === 'ar'
+    ? { eyebrow: 'دراسة حالة', challenge: 'التحدي', approach: 'الحل', result: 'النتيجة' }
+    : { eyebrow: 'Case study', challenge: 'The challenge', approach: 'What I did', result: 'The result' }
 
   return (
     <PageTransition>
@@ -147,6 +152,43 @@ export default function ProjectDetail() {
               </dl>
             </aside>
           </motion.section>
+
+          {/* Case study — only on projects that have one */}
+          {cs && (
+            <motion.section
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="mt-14 border-t border-fg/8 pt-10"
+            >
+              <h2 className="eyebrow mb-6">{csLabels.eyebrow}</h2>
+
+              <div className="mb-9">
+                <h3 className="font-serif text-display-sm text-fg mb-3">{csLabels.challenge}</h3>
+                <p className="text-base leading-loose text-fg/85 max-w-3xl">{pick(cs.challenge)}</p>
+              </div>
+
+              <div className="mb-9">
+                <h3 className="font-serif text-display-sm text-fg mb-4">{csLabels.approach}</h3>
+                <ol className="space-y-4 max-w-3xl">
+                  {cs.approach.map((step, i) => (
+                    <li key={i} className="flex gap-4">
+                      <span className="mt-0.5 shrink-0 font-mono text-xs text-brass-600 dark:text-brass-400 tabular-nums">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <p className="text-base leading-loose text-fg/85">{pick(step)}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              <div className="card-base p-6 max-w-3xl">
+                <h3 className="eyebrow mb-3">{csLabels.result}</h3>
+                <p className="text-base leading-loose text-fg/85">{pick(cs.result)}</p>
+              </div>
+            </motion.section>
+          )}
 
           {/* Tech stack */}
           <motion.section
