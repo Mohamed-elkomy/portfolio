@@ -14,7 +14,9 @@ const MARQUEE_ITEMS = [
   'React.js · TypeScript · JavaScript',
   'Next.js · Redux Toolkit · REST APIs',
   'Building production web applications',
-  'Open to work — remote or on-site',
+  'Building at Brmja Tech',
+  'Open to work — full-time / part-time',
+  'Remote · Hybrid · On-site',
 ]
 
 export default function Home() {

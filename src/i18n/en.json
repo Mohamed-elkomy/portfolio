@@ -48,7 +48,7 @@
     "eyebrow": "About",
     "title": "Software engineering meets craft",
     "p1": "Frontend Developer and Software Engineer based in Egypt, working with React.js, JavaScript, TypeScript and Next.js. Computer Science graduate from MTI with foundations in embedded systems, machine learning and mobile development before focusing on building production web applications.",
-    "p2": "At <1>{{company}}</1>, I shipped client-facing React applications across e-commerce, SaaS, ERP, education and B2B — integrating them with live REST APIs, managing state with Redux Toolkit, and taking inherited codebases through large refactors with a focus on internationalization, RTL and performance.",
+    "p2": "At <1>{{company}}</1>, I ship client-facing React applications across e-commerce, SaaS, ERP, education and B2B — integrating them with live REST APIs, managing state with Redux Toolkit, and taking inherited codebases through large refactors with a focus on internationalization, RTL and performance.",
     "p2Highlight": "Brmja Tech",
     "p3": "Highlights include overhauling a 9-language tourism platform, building ERP and admin dashboards wired to real back-ends, and shipping a Redux Toolkit e-commerce storefront — owning architecture and code quality end to end.",
     "downloadCV": "Download Résumé",
@@ -141,7 +141,7 @@
     "interestsTitle": "Hobbies & interests",
     "interestsSubtitle": "What keeps me curious outside of work.",
     "nowLabel": "Now",
-    "nowValue": "Open to work",
+    "nowValue": "Brmja Tech",
     "prevLabel": "Previously at"
   }
 }

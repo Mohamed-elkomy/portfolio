@@ -21,7 +21,7 @@
     "byCategory": "حسب الفئة"
   },
   "hero": {
-    "available": "متاح للعمل — دوام كامل، عن بُعد أو من المكتب",
+    "available": "متاح للعمل — دوام كامل أو جزئي · عن بُعد، هايبرد أو من المكتب",
     "role": "مطوّر واجهات أمامية · مهندس برمجيات · React.js / Next.js",
     "name": "محمد مجدي الكومي",
     "nameArabic": "Mohamed Magdy Elkomy",
@@ -48,7 +48,7 @@
     "eyebrow": "عني",
     "title": "حيث تلتقي هندسة البرمجيات بالحرفة",
     "p1": "مطوّر واجهات أمامية ومهندس برمجيات من مصر، بشتغل بـ React.js و JavaScript و TypeScript و Next.js. خريّج علوم حاسب من جامعة MTI، وخلفيتي شملت الـ embedded systems والـ machine learning والموبايل قبل ما أركّز على بناء تطبيقات ويب production.",
-    "p2": "في <1>{{company}}</1> شحنت تطبيقات React للعملاء في التجارة الإلكترونية و SaaS و ERP والتعليم و B2B — ربطتها بـ REST APIs حقيقية، وأدرت الحالة بـ Redux Toolkit، وعملت refactoring كبير لـ codebases متسلّمة بتركيز على i18n و RTL والأداء.",
+    "p2": "في <1>{{company}}</1> بشحن تطبيقات React للعملاء في التجارة الإلكترونية و SaaS و ERP والتعليم و B2B — وبربطها بـ REST APIs حقيقية، وبدير الحالة بـ Redux Toolkit، وبعمل refactoring كبير لـ codebases متسلّمة بتركيز على i18n و RTL والأداء.",
     "p2Highlight": "Brmja Tech",
     "p3": "من أبرز شغلي: تحديث منصة سياحة بـ 9 لغات، بناء داشبوردات ERP وإدارة مربوطة بباك إند حقيقي، وتطوير متجر إلكتروني بـ Redux Toolkit — مع مسؤولية المعمارية وجودة الكود بالكامل.",
     "downloadCV": "تنزيل السيرة الذاتية",
@@ -141,7 +141,7 @@
     "interestsTitle": "الهوايات والاهتمامات",
     "interestsSubtitle": "الحاجات اللي بتخليني فضولي بره الشغل.",
     "nowLabel": "حاليًا",
-    "nowValue": "متاح للعمل",
+    "nowValue": "Brmja Tech",
     "prevLabel": "آخر شركة"
   }
 }

@@ -6,10 +6,10 @@ export const experience = [
     role: { en: 'Frontend Developer / Software Engineer', ar: 'مطوّر واجهات أمامية / مهندس برمجيات' },
     location: 'Maadi, Cairo · On-site',
     type: 'Full-time',
-    period: { start: 'Dec 2025', end: 'Aug 2026' },
+    period: { start: 'Dec 2025', end: 'Present' },
     description: {
-      en: 'Built production React web applications for clients across Egypt and the Gulf — ERP and admin dashboards, API-integrated platforms, e-commerce, multi-language sites and landing pages — owning architecture, REST API integration and code quality.',
-      ar: 'بنيت تطبيقات ويب React جاهزة للإنتاج لعملاء في مصر والخليج — أنظمة ERP وداشبوردات، منصات مربوطة بـ API، تجارة إلكترونية، مواقع متعددة اللغات ولاندينج بيجز — مع مسؤولية المعمارية وربط الـ REST APIs وجودة الكود.',
+      en: 'Building production React web applications for clients across Egypt and the Gulf — ERP and admin dashboards, API-integrated platforms, e-commerce, multi-language sites and landing pages — owning architecture, REST API integration and code quality.',
+      ar: 'ببني تطبيقات ويب React جاهزة للإنتاج لعملاء في مصر والخليج — أنظمة ERP وداشبوردات، منصات مربوطة بـ API، تجارة إلكترونية، مواقع متعددة اللغات ولاندينج بيجز — مع مسؤولية المعمارية وربط الـ REST APIs وجودة الكود.',
     },
     highlights: [
       { en: 'Shipped 10+ client-facing apps including FIX Store, YourZ, Faya ERP', ar: 'شحنت 10+ تطبيقات للعملاء منها FIX Store و YourZ و Faya ERP' },

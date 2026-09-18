@@ -93,7 +93,7 @@ export default function About() {
 
             <dl className="space-y-4 text-sm">
               <div className="flex items-baseline justify-between gap-4 border-b border-fg/6 pb-3">
-                <dt className="text-muted">Previously at</dt>
+                <dt className="text-muted">Currently at</dt>
                 <dd className="font-medium text-fg">Brmja Tech</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4 border-b border-fg/6 pb-3">
