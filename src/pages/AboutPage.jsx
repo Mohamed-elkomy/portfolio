@@ -7,6 +7,7 @@ import SectionHeading from '@/components/common/SectionHeading'
 import Skills from '@/components/sections/Skills'
 import Experience from '@/components/sections/Experience'
 import Education from '@/components/sections/Education'
+import Beyond from '@/components/sections/Beyond'
 import MagneticButton from '@/components/common/MagneticButton'
 import { useLocale } from '@/hooks/useLocale'
 
@@ -19,7 +20,7 @@ export default function AboutPage() {
     <PageTransition>
       <Seo
         title={`${t('nav.about')} — Mohamed Elkomy`}
-        description="Front-End Developer based in Cairo — React, internationalization, RTL interfaces, and performance."
+        description="Frontend Developer & Software Engineer — React.js, TypeScript, Next.js, Redux Toolkit and REST APIs. Building production web applications."
         path="/about"
       />
 
@@ -90,16 +91,16 @@ export default function AboutPage() {
               <p className="eyebrow mb-4">Quick facts</p>
               <dl className="space-y-3 text-sm">
                 <div className="flex items-baseline justify-between gap-3 border-b border-fg/6 pb-2.5">
-                  <dt className="text-muted">Now</dt>
-                  <dd className="font-medium text-fg">Brmja Tech</dd>
+                  <dt className="text-muted">{t('extras.nowLabel')}</dt>
+                  <dd className="font-medium text-fg">{t('extras.nowValue')}</dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-3 border-b border-fg/6 pb-2.5">
                   <dt className="text-muted">Role</dt>
-                  <dd className="font-medium text-fg">Front-End Dev</dd>
+                  <dd className="font-medium text-fg">Frontend · Software Eng.</dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-3 border-b border-fg/6 pb-2.5">
                   <dt className="text-muted">Stack</dt>
-                  <dd className="font-medium text-fg">React · Vite</dd>
+                  <dd className="font-medium text-fg">React · TS · Next.js</dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-3 border-b border-fg/6 pb-2.5">
                   <dt className="text-muted">Grad</dt>
@@ -107,7 +108,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-baseline justify-between gap-3 border-b border-fg/6 pb-2.5">
                   <dt className="text-muted">Base</dt>
-                  <dd className="font-medium text-fg">Cairo, EG</dd>
+                  <dd className="font-medium text-fg">Egypt · Remote OK</dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-3">
                   <dt className="text-muted">Lang</dt>
@@ -127,6 +128,9 @@ export default function AboutPage() {
 
       {/* Education */}
       <Education />
+
+      {/* Learning + hobbies */}
+      <Beyond />
     </PageTransition>
   )
 }

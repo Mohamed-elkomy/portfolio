@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Mohamed Magdy Elkomy — Front-End Developer",
-    "description": "Front-End Developer crafting refined, performant web experiences with React.js."
+    "title": "Mohamed Magdy Elkomy — Frontend Developer & Software Engineer",
+    "description": "Frontend Developer & Software Engineer building production web applications with React.js, TypeScript, JavaScript, Next.js, Redux Toolkit and REST APIs."
   },
   "nav": {
     "home": "Home",
@@ -21,16 +21,16 @@
     "byCategory": "By category"
   },
   "hero": {
-    "available": "Available for opportunities",
-    "role": "Front-End Developer · React",
+    "available": "Open to work — full-time, remote or on-site",
+    "role": "Frontend Developer · Software Engineer · React.js / Next.js",
     "name": "Mohamed Magdy Elkomy",
     "nameArabic": "محمد مجدي الكومي",
-    "intro": "Shipping <1>production React apps</1> for clients across MENA. Specialized in internationalization, RTL interfaces, performance optimization, and design-system thinking — production code that scales.",
+    "intro": "Building <1>production web applications</1> with React.js, TypeScript and Next.js — ERP dashboards, API-integrated platforms and bilingual RTL interfaces for clients across MENA. Focused on clean architecture, Redux Toolkit state management, REST API integration and performance.",
     "company": "Brmja Tech",
     "viewWork": "View work",
     "getInTouch": "Get in touch",
     "based": "Based in",
-    "location": "Cairo · Egypt · UTC+2",
+    "location": "Cairo · Egypt · Open to relocate & remote",
     "scroll": "Scroll"
   },
   "stats": {
@@ -46,11 +46,11 @@
   },
   "about": {
     "eyebrow": "About",
-    "title": "Engineering meets craft",
-    "p1": "Front-End Developer based in Cairo, working primarily with React, Vite, and TypeScript. Computer Science graduate from MTI with foundations spanning embedded systems, machine learning, and mobile development before settling into the frontend.",
-    "p2": "At <1>{{company}}</1>, I ship client-facing React applications across e-commerce, SaaS, education, and B2B verticals. Comfortable inheriting messy codebases, refactoring at scale, and building greenfield products with a focus on internationalization, RTL, and performance.",
+    "title": "Software engineering meets craft",
+    "p1": "Frontend Developer and Software Engineer based in Egypt, working with React.js, JavaScript, TypeScript and Next.js. Computer Science graduate from MTI with foundations in embedded systems, machine learning and mobile development before focusing on building production web applications.",
+    "p2": "At <1>{{company}}</1>, I shipped client-facing React applications across e-commerce, SaaS, ERP, education and B2B — integrating them with live REST APIs, managing state with Redux Toolkit, and taking inherited codebases through large refactors with a focus on internationalization, RTL and performance.",
     "p2Highlight": "Brmja Tech",
-    "p3": "Recent work includes overhauling a 9-language tourism platform, building a premium beauty marketplace landing page, and shipping a feature-rich e-commerce storefront with Redux Toolkit, while owning architecture and code quality end to end.",
+    "p3": "Highlights include overhauling a 9-language tourism platform, building ERP and admin dashboards wired to real back-ends, and shipping a Redux Toolkit e-commerce storefront — owning architecture and code quality end to end.",
     "downloadCV": "Download Résumé",
     "readMore": "Read full story"
   },
@@ -70,7 +70,11 @@
       "education": "Education",
       "retail": "Retail",
       "healthcare": "Healthcare",
-      "marketplace": "Marketplace"
+      "marketplace": "Marketplaces",
+      "erp": "ERP & Dashboards",
+      "services": "Services & B2B",
+      "travel": "Travel & Logistics",
+      "realestate": "Real Estate"
     },
     "type": {
       "landing": "Landing Page",
@@ -128,5 +132,16 @@
     "switchLanguage": "Switch language",
     "menu": "Menu",
     "close": "Close"
+  },
+  "extras": {
+    "learningEyebrow": "Currently learning",
+    "learningTitle": "Always leveling up",
+    "learningSubtitle": "Going deeper on the back-end side so I can own features end to end.",
+    "interestsEyebrow": "Beyond code",
+    "interestsTitle": "Hobbies & interests",
+    "interestsSubtitle": "What keeps me curious outside of work.",
+    "nowLabel": "Now",
+    "nowValue": "Open to work",
+    "prevLabel": "Previously at"
   }
 }

@@ -35,7 +35,7 @@ export default function About() {
                   >
                     <Trans
                       i18nKey="about.p2"
-                      values={{ premium: t('about.p2Highlight') }}
+                      values={{ company: t('about.p2Highlight') }}
                       components={{
                         1: <em className="font-serif italic text-brass-600 dark:text-brass-400" />,
                       }}
@@ -93,16 +93,16 @@ export default function About() {
 
             <dl className="space-y-4 text-sm">
               <div className="flex items-baseline justify-between gap-4 border-b border-fg/6 pb-3">
-                <dt className="text-muted">Currently at</dt>
+                <dt className="text-muted">Previously at</dt>
                 <dd className="font-medium text-fg">Brmja Tech</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4 border-b border-fg/6 pb-3">
                 <dt className="text-muted">Role</dt>
-                <dd className="font-medium text-fg">Front-End Dev</dd>
+                <dd className="font-medium text-fg">Frontend · Software Eng.</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4 border-b border-fg/6 pb-3">
                 <dt className="text-muted">Specializing in</dt>
-                <dd className="font-medium text-fg">React.js</dd>
+                <dd className="font-medium text-fg">React.js · TypeScript</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4 border-b border-fg/6 pb-3">
                 <dt className="text-muted">Graduated</dt>
@@ -110,7 +110,7 @@ export default function About() {
               </div>
               <div className="flex items-baseline justify-between gap-4 border-b border-fg/6 pb-3">
                 <dt className="text-muted">Based in</dt>
-                <dd className="font-medium text-fg">Cairo · UTC+2</dd>
+                <dd className="font-medium text-fg">Egypt · Open to relocate</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4">
                 <dt className="text-muted">Languages</dt>

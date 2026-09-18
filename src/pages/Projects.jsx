@@ -6,7 +6,7 @@ import Seo from '@/components/common/Seo'
 import PageTransition from '@/components/common/PageTransition'
 import SectionHeading from '@/components/common/SectionHeading'
 import ProjectCard from '@/components/common/ProjectCard'
-import { projects } from '@/data/projects'
+import { projects, CATEGORY_ORDER } from '@/data/projects'
 import { useLocale } from '@/hooks/useLocale'
 import { cn } from '@/lib/utils'
 
@@ -15,8 +15,7 @@ export default function ProjectsGallery() {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const categories = useMemo(() => {
-    const set = new Set(projects.map((p) => p.category))
-    return ['all', ...Array.from(set)]
+    return ['all', ...CATEGORY_ORDER.filter((c) => projects.some((p) => p.category === c))]
   }, [])
 
   const techTags = useMemo(() => {

@@ -3,16 +3,17 @@
 export const experience = [
   {
     company: 'Brmja Tech',
-    role: { en: 'Front-End Developer', ar: 'مطوّر واجهات أمامية' },
+    role: { en: 'Frontend Developer / Software Engineer', ar: 'مطوّر واجهات أمامية / مهندس برمجيات' },
     location: 'Maadi, Cairo · On-site',
     type: 'Full-time',
-    period: { start: 'Dec 2025', end: 'Present' },
+    period: { start: 'Dec 2025', end: 'Aug 2026' },
     description: {
-      en: 'Building production React + Vite apps for clients across Egypt and the Gulf — landing pages, multi-language platforms, e-commerce, and ERP systems, while owning architecture and code quality.',
-      ar: 'بناء تطبيقات React + Vite للعملاء في مصر والخليج — لاندينج بيجز، منصات متعددة اللغات، تجارة إلكترونية، وأنظمة ERP، مع امتلاك المعمارية وجودة الكود.',
+      en: 'Built production React web applications for clients across Egypt and the Gulf — ERP and admin dashboards, API-integrated platforms, e-commerce, multi-language sites and landing pages — owning architecture, REST API integration and code quality.',
+      ar: 'بنيت تطبيقات ويب React جاهزة للإنتاج لعملاء في مصر والخليج — أنظمة ERP وداشبوردات، منصات مربوطة بـ API، تجارة إلكترونية، مواقع متعددة اللغات ولاندينج بيجز — مع مسؤولية المعمارية وربط الـ REST APIs وجودة الكود.',
     },
     highlights: [
       { en: 'Shipped 10+ client-facing apps including FIX Store, YourZ, Faya ERP', ar: 'شحنت 10+ تطبيقات للعملاء منها FIX Store و YourZ و Faya ERP' },
+      { en: 'Integrated 16+ front-ends end-to-end with live REST APIs — auth/OTP flows and role-based dashboards', ar: 'ربطت 16+ واجهة بالكامل مع REST APIs حقيقية — مصادقة و OTP وداشبوردات بصلاحيات' },
       { en: 'Owned i18n / RTL implementation across all projects', ar: 'مسؤول عن تنفيذ i18n / RTL في كل المشاريع' },
       { en: 'Inherited and overhauled MyTours — 9-language tourism platform', ar: 'تسلّمت وحدّثت MyTours — منصة سياحة بـ 9 لغات' },
     ],

@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 
-const SITE_URL = 'https://portfolio-beige-pi-ymybq0xpfb.vercel.app'
+const SITE_URL = 'https://mohamed-elkomy.vercel.app'
 const OG_IMAGE = `${SITE_URL}/og-image.png`
 
 /**

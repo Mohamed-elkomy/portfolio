@@ -9,11 +9,12 @@ import PageTransition from '@/components/common/PageTransition'
 import { useLocale } from '@/hooks/useLocale'
 
 const MARQUEE_ITEMS = [
-  'Front-End Developer',
-  'React · Vite · JavaScript',
-  'Available for hire',
-  'Based in Cairo',
-  'Building at Brmja Tech',
+  'Frontend Developer',
+  'Software Engineer',
+  'React.js · TypeScript · JavaScript',
+  'Next.js · Redux Toolkit · REST APIs',
+  'Building production web applications',
+  'Open to work — remote or on-site',
 ]
 
 export default function Home() {

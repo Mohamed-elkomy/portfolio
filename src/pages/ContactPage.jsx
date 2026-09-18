@@ -201,7 +201,7 @@ export default function ContactPage() {
 
               <div className="rounded-lg border border-fg/8 bg-card p-5">
                 <p className="eyebrow mb-2">Response time</p>
-                <p className="text-sm text-fg/80">Usually within 24 hours, Cairo time (UTC+2).</p>
+                <p className="text-sm text-fg/80">Usually within 24 hours, Cairo time.</p>
               </div>
             </motion.div>
           </div>

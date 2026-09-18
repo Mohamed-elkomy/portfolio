@@ -9,7 +9,7 @@ import LanguageToggle from './LanguageToggle'
 import MagneticButton from '@/components/common/MagneticButton'
 import { useLocale } from '@/hooks/useLocale'
 import { githubStats } from '@/data/profile'
-import { projects } from '@/data/projects'
+import { projects, featuredProjects, CATEGORY_ORDER } from '@/data/projects'
 import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
@@ -21,7 +21,7 @@ const NAV_LINKS = [
 
 // Derived from the actual project data so the dropdown never drifts out of sync
 // with the categories that exist. 'all' first, then each unique category.
-const WORK_CATEGORIES = ['all', ...Array.from(new Set(projects.map((p) => p.category)))]
+const WORK_CATEGORIES = ['all', ...CATEGORY_ORDER.filter((c) => projects.some((p) => p.category === c))]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -61,7 +61,7 @@ export default function Navbar() {
   }
 
   // Latest 3 projects for dropdown preview
-  const recentProjects = projects.filter(p => p.featured).slice(0, 3)
+  const recentProjects = featuredProjects.slice(0, 5)
 
   return (
     <>
@@ -128,13 +128,13 @@ export default function Navbar() {
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                           className={cn(
-                            'absolute top-full mt-2 w-[460px] rounded-xl border border-fg/8 bg-bg/95 p-2 shadow-xl backdrop-blur-md',
+                            'absolute top-full mt-2 w-[min(680px,calc(100vw-2rem))] rounded-xl border border-fg/8 bg-bg/95 p-2 shadow-xl backdrop-blur-md',
                             isRTL ? 'right-0' : 'left-0',
                           )}
                         >
-                          <div className="grid grid-cols-[1fr_1.4fr] gap-2">
+                          <div className="grid grid-cols-[200px_minmax(0,1fr)] gap-2">
                             {/* Categories */}
-                            <div className="border-e border-fg/8 pe-2 py-2">
+                            <div className="min-w-0 border-e border-fg/8 pe-2 py-2">
                               <p className="px-3 pb-2 text-[10px] uppercase tracking-mega text-muted">
                                 {t('nav.byCategory')}
                               </p>
@@ -143,9 +143,12 @@ export default function Navbar() {
                                   <li key={cat}>
                                     <Link
                                       to={`/work${cat !== 'all' ? `?category=${cat}` : ''}`}
-                                      className="block rounded-md px-3 py-1.5 text-sm text-fg/80 transition-colors hover:bg-brass-500/8 hover:text-brass-600 dark:hover:text-brass-400"
+                                      className="flex items-center justify-between gap-2 whitespace-nowrap rounded-md px-3 py-1.5 text-sm text-fg/80 transition-colors hover:bg-brass-500/8 hover:text-brass-600 dark:hover:text-brass-400"
                                     >
-                                      {cat === 'all' ? t('nav.workAll') : t(`projects.category.${cat}`, { defaultValue: cat })}
+                                      <span>{cat === 'all' ? t('nav.workAll') : t(`projects.category.${cat}`, { defaultValue: cat })}</span>
+                                      <span className="text-[11px] tabular-nums text-muted">
+                                        {cat === 'all' ? projects.length : projects.filter((p) => p.category === cat).length}
+                                      </span>
                                     </Link>
                                   </li>
                                 ))}
@@ -153,7 +156,7 @@ export default function Navbar() {
                             </div>
 
                             {/* Recent work preview */}
-                            <div className="ps-2 py-2">
+                            <div className="min-w-0 ps-2 py-2">
                               <p className="px-3 pb-2 text-[10px] uppercase tracking-mega text-muted">
                                 {t('nav.viewWork')}
                               </p>

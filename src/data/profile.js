@@ -4,9 +4,11 @@ export const profile = {
   nickname: 'Mo',
   handle: 'mo.komy',
   initials: 'MK',
-  role: { en: 'Front-End Developer', ar: 'مطوّر واجهات أمامية' },
-  location: 'Cairo, Egypt',
-  timezone: 'UTC+2',
+  role: { en: 'Frontend Developer · Software Engineer', ar: 'مطوّر واجهات أمامية · مهندس برمجيات' },
+  headline:
+    'Frontend Developer | Software Engineer | React.js | TypeScript | JavaScript | Next.js | Redux Toolkit | REST APIs | Building Production Web Applications',
+  location: 'Cairo, Egypt · Open to relocate & remote',
+  timezone: 'Africa/Cairo (EET)',
   available: true,
 }
 
@@ -58,7 +60,7 @@ export const githubStats = {
 
 // Aggregate stats for the StatsBar section
 export const aggregateStats = [
-  { id: 'projects', label: 'projects shipped', value: 38, suffix: '+' },
+  { id: 'projects', label: 'projects shipped', value: 40, suffix: '+' },
   { id: 'repos', label: 'public repos', value: 97 },
   { id: 'contributions', label: 'contributions / year', value: 370 },
   { id: 'certificates', label: 'certifications', value: 8 },

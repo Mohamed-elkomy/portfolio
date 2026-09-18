@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "محمد مجدي الكومي — مطوّر واجهات أمامية",
-    "description": "مطوّر واجهات أمامية بصنع تجارب ويب راقية ومتقنة بـ React.js."
+    "title": "محمد مجدي الكومي — مطوّر واجهات أمامية ومهندس برمجيات",
+    "description": "مطوّر واجهات أمامية ومهندس برمجيات بيبني تطبيقات ويب production بـ React.js و TypeScript و JavaScript و Next.js و Redux Toolkit و REST APIs."
   },
   "nav": {
     "home": "الرئيسية",
@@ -21,16 +21,16 @@
     "byCategory": "حسب الفئة"
   },
   "hero": {
-    "available": "متاح للفرص",
-    "role": "مطوّر واجهات أمامية · React",
+    "available": "متاح للعمل — دوام كامل، عن بُعد أو من المكتب",
+    "role": "مطوّر واجهات أمامية · مهندس برمجيات · React.js / Next.js",
     "name": "محمد مجدي الكومي",
     "nameArabic": "Mohamed Magdy Elkomy",
-    "intro": "بشحن <1>تطبيقات React production</1> لعملاء في الشرق الأوسط. متخصّص في i18n و RTL وتحسين الـ performance — كود production يكبر مع المشروع.",
+    "intro": "ببني <1>تطبيقات ويب جاهزة للإنتاج</1> بـ React.js و TypeScript و Next.js — داشبوردات ERP، منصات مربوطة بـ APIs، وواجهات عربي/إنجليزي RTL لعملاء في الشرق الأوسط. تركيزي على معمارية نظيفة، إدارة الحالة بـ Redux Toolkit، ربط الـ REST APIs، والأداء.",
     "company": "Brmja Tech",
     "viewWork": "شاهد الأعمال",
     "getInTouch": "تواصل معي",
     "based": "مقيم في",
-    "location": "القاهرة · مصر · UTC+2",
+    "location": "القاهرة · مصر · متاح للانتقال والعمل عن بُعد",
     "scroll": "مرّر"
   },
   "stats": {
@@ -46,11 +46,11 @@
   },
   "about": {
     "eyebrow": "عني",
-    "title": "حيث تلتقي الهندسة بالحرفة",
-    "p1": "مطوّر واجهات أمامية مقيم في القاهرة، شغال أساساً بـ React و Vite و TypeScript. خريّج علوم حاسب من جامعة MTI، خلفيتي قبل ما أستقر على الـ frontend شملت الـ embedded systems و الـ machine learning و mobile development.",
-    "p2": "في <1>{{company}}</1> بشحن تطبيقات React للعملاء في قطاعات التجارة الإلكترونية، SaaS، التعليم، و B2B. مرتاح في تسلّم codebases معقدة، الـ refactoring على نطاق واسع، وبناء منتجات من الصفر بتركيز على i18n و RTL و الـ performance.",
+    "title": "حيث تلتقي هندسة البرمجيات بالحرفة",
+    "p1": "مطوّر واجهات أمامية ومهندس برمجيات من مصر، بشتغل بـ React.js و JavaScript و TypeScript و Next.js. خريّج علوم حاسب من جامعة MTI، وخلفيتي شملت الـ embedded systems والـ machine learning والموبايل قبل ما أركّز على بناء تطبيقات ويب production.",
+    "p2": "في <1>{{company}}</1> شحنت تطبيقات React للعملاء في التجارة الإلكترونية و SaaS و ERP والتعليم و B2B — ربطتها بـ REST APIs حقيقية، وأدرت الحالة بـ Redux Toolkit، وعملت refactoring كبير لـ codebases متسلّمة بتركيز على i18n و RTL والأداء.",
     "p2Highlight": "Brmja Tech",
-    "p3": "من شغلي الأخير: تحديث منصة سياحة بـ 9 لغات، بناء لاندينج فاخر لـ marketplace جمال، وتطوير متجر إلكتروني بـ Redux Toolkit، مع امتلاك المعمارية وجودة الكود بالكامل.",
+    "p3": "من أبرز شغلي: تحديث منصة سياحة بـ 9 لغات، بناء داشبوردات ERP وإدارة مربوطة بباك إند حقيقي، وتطوير متجر إلكتروني بـ Redux Toolkit — مع مسؤولية المعمارية وجودة الكود بالكامل.",
     "downloadCV": "تنزيل السيرة الذاتية",
     "readMore": "اقرأ القصة كاملة"
   },
@@ -70,7 +70,11 @@
       "education": "تعليم",
       "retail": "تجزئة",
       "healthcare": "رعاية صحية",
-      "marketplace": "سوق إلكتروني"
+      "marketplace": "منصات وأسواق",
+      "erp": "ERP وداشبوردات",
+      "services": "خدمات و B2B",
+      "travel": "سفر ولوجستيات",
+      "realestate": "عقارات"
     },
     "type": {
       "landing": "لاندينج بيج",
@@ -128,5 +132,16 @@
     "switchLanguage": "تغيير اللغة",
     "menu": "القائمة",
     "close": "إغلاق"
+  },
+  "extras": {
+    "learningEyebrow": "بتعلّم حاليًا",
+    "learningTitle": "دايمًا بطوّر نفسي",
+    "learningSubtitle": "بتعمّق في الباك إند عشان أقدر أمسك الفيتشر من أولها لآخرها.",
+    "interestsEyebrow": "بعيد عن الكود",
+    "interestsTitle": "الهوايات والاهتمامات",
+    "interestsSubtitle": "الحاجات اللي بتخليني فضولي بره الشغل.",
+    "nowLabel": "حاليًا",
+    "nowValue": "متاح للعمل",
+    "prevLabel": "آخر شركة"
   }
 }
