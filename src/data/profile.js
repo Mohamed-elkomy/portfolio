@@ -65,3 +65,14 @@ export const aggregateStats = [
   { id: 'contributions', label: 'contributions / year', value: 370 },
   { id: 'certificates', label: 'certifications', value: 8 },
 ]
+
+// Official profiles grid on the Contact page. `tag` keys live in i18n `profiles.tags`.
+export const officialProfiles = [
+  { id: 'linkedin', name: 'LinkedIn', handle: 'mohamed-magdy-elkomy', url: 'https://www.linkedin.com/in/mohamed-magdy-elkomy/', icon: 'Linkedin', tag: 'professional' },
+  { id: 'github', name: 'GitHub', handle: 'Mohamed-elkomy', url: 'https://github.com/Mohamed-elkomy', icon: 'Github', tag: 'sourceCode' },
+  { id: 'instagram-creative', name: 'Instagram (Creative / Video)', handle: '@sukoon.t_74', url: 'https://www.instagram.com/sukoon.t_74/', icon: 'Instagram', tag: 'visuals' },
+  { id: 'instagram-personal', name: 'Instagram (Personal)', handle: '@mo.magdy_74', url: 'https://www.instagram.com/mo.magdy_74/', icon: 'Instagram', tag: 'personal' },
+  { id: 'tiktok-creative', name: 'TikTok (Creative / Video)', handle: '@sukoon.t_74', url: 'https://www.tiktok.com/@sukoon.t_74', icon: 'TikTok', tag: 'reels' },
+  { id: 'tiktok-personal', name: 'TikTok (Personal)', handle: '@mo.magdy_74', url: 'https://www.tiktok.com/@mo.magdy_74', icon: 'TikTok', tag: 'daily' },
+  { id: 'facebook', name: 'Facebook', handle: 'Mohamed Magdy Elkomy', url: 'https://www.facebook.com/Hacker.XCom', icon: 'Facebook', tag: 'social' },
+]

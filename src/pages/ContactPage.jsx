@@ -5,6 +5,7 @@ import { Github, Linkedin, Mail, MessageCircle, ArrowUpRight, Send, CheckCircle2
 import Seo from '@/components/common/Seo'
 import PageTransition from '@/components/common/PageTransition'
 import SectionHeading from '@/components/common/SectionHeading'
+import OfficialProfiles from '@/components/sections/OfficialProfiles'
 import { contact, social } from '@/data/profile'
 import { useLocale } from '@/hooks/useLocale'
 
@@ -205,6 +206,8 @@ export default function ContactPage() {
               </div>
             </motion.div>
           </div>
+
+          <OfficialProfiles />
         </div>
       </div>
     </PageTransition>

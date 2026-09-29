@@ -120,6 +120,20 @@
     "or": "or",
     "social": "Find me elsewhere"
   },
+  "profiles": {
+    "eyebrow": "Social & portfolios",
+    "title": "Mohamed Elkomy — Official Profiles",
+    "cv": "Download CV",
+    "tags": {
+      "professional": "Professional",
+      "sourceCode": "Source Code",
+      "visuals": "Portfolio & Visuals",
+      "personal": "Personal Profile",
+      "reels": "Cinematic & Reels",
+      "daily": "Daily Clips",
+      "social": "Social"
+    }
+  },
   "footer": {
     "rights": "All rights reserved.",
     "builtWith": "Built with",
