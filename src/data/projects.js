@@ -24,6 +24,40 @@ export const CATEGORY_ORDER = ['erp', 'ecommerce', 'services', 'healthcare', 'ed
  */
 
 export const projects = [
+  {
+    slug: 'odoratus',
+    caseStudy: {
+      challenge: {
+        en: 'In a two-week bootcamp sprint (Digitera, iCareer × EraaSoft), take a perfume brand from a virtual client interview to a live shop: discover the functional and non-functional requirements, turn them into a backlog, and ship a bilingual store plus a dashboard the owner can run without a developer.',
+        ar: 'في سبرنت أسبوعين (بوت كامب Digitera مع iCareer × EraaSoft): أوصل ببراند عطور من أول مقابلة مع Virtual Client لحد متجر لايف — أستخرج المتطلبات الوظيفية وغير الوظيفية، أحولها لـ Backlog، وأسلّم متجر بلغتين وداشبورد صاحب البيزنس يديرها من غير مطوّر.',
+      },
+      approach: [
+        { en: 'Interviewed the virtual client to surface hidden requirements (guest checkout, WhatsApp ordering, a 2–3 s load budget on Fast 3G) and wrote them up as epics, user stories and tasks before any code.', ar: 'سألت الـ Virtual Client لحد ما طلعت المتطلبات المخفية (Checkout من غير حساب، الطلب عبر واتساب، تحميل في 2–3 ثواني على Fast 3G) وكتبتها Epics و User Stories و Tasks قبل أي كود.' },
+        { en: 'Built a Feature-Sliced Next.js 16 app where the mock catalogue and Sanity share one filtering/sorting layer, and orders, inquiries and reviews go through server route handlers that re-check prices and stock and keep the write token off the browser.', ar: 'بنيت تطبيق Next.js 16 بـ Feature-Sliced، الـ Mock Data و Sanity بيعدّوا على نفس طبقة الفلترة والترتيب، والأوردرات والرسايل والتقييمات بتعدي على Route Handlers بتراجع الأسعار والمخزون وبتخلي الـ Token بعيد عن المتصفح.' },
+        { en: 'Worked with an AI coding agent connected to the Figma file, reviewing every change for types, accessibility and RTL — AI as a tool under review, not a replacement for judgement.', ar: 'اشتغلت مع AI Agent متوصل بملف Figma، وراجعت كل تغيير من ناحية الـ Types والـ Accessibility والـ RTL — الـ AI أداة تحت المراجعة، مش بديل عن القرار.' },
+      ],
+      result: {
+        en: 'A live bilingual store (guest checkout to WhatsApp, wishlist, reviews, FAQ, contact form) and a separate Sanity dashboard for orders, products, per-size prices, stock, inquiries and review approval — deployed on Vercel.',
+        ar: 'متجر لايف بلغتين (Checkout من غير حساب لواتساب، Wishlist، تقييمات، FAQ، Contact Form) وداشبورد Sanity مستقلة للأوردرات والمنتجات والأسعار والمخزون والرسايل والموافقة على التقييمات — ومرفوع على Vercel.',
+      },
+    },
+    name: { en: 'Odoratus', ar: 'أودوراتس' },
+    tagline: {
+      en: 'Full-stack perfume store with an owner dashboard — built from client requirements in two weeks.',
+      ar: 'متجر عطور Full-Stack بداشبورد لصاحب البيزنس — مبني من متطلبات الكلاينت في أسبوعين.',
+    },
+    description: {
+      en: 'Bilingual (EN/AR, full RTL) luxury perfume store with light/dark themes: search, filters and sorting in the URL, bottle sizes and gift wrapping, guest checkout that sends a full invoice to WhatsApp, wishlist, customer reviews with approval, FAQ and contact form. The owner manages orders, products, prices, stock and inquiries in a Sanity dashboard.',
+      ar: 'متجر عطور فاخر بلغتين (عربي/إنجليزي RTL كامل) و Light/Dark: بحث وفلاتر وترتيب في الـ URL، أحجام زجاجات وتغليف هدايا، Checkout من غير حساب بيبعت فاتورة كاملة على واتساب، Wishlist، تقييمات بموافقة، FAQ و Contact Form. وصاحب البيزنس بيدير الأوردرات والمنتجات والأسعار والمخزون والرسايل من داشبورد Sanity.',
+    },
+    type: 'website', category: 'ecommerce',
+    tech: ['Next.js', 'TypeScript', 'Tailwind', 'TanStack Query', 'Zustand', 'Sanity'],
+    links: {
+      live: 'https://digiterafrontend.vercel.app/',
+      source: 'https://github.com/Mohamed-elkomy/Digitera_Frontend',
+    },
+    featured: false, year: 2026, role: 'Solo — Bootcamp Project',
+  },
   // ============== SYSTEMS & DASHBOARDS (strongest work — API / back-end integration) ==============
   {
     slug: 'my-store',

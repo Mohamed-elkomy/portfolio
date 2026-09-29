@@ -1,8 +1,17 @@
-// 8 certifications across 6 institutions
+// 9 certifications across 7 institutions
 // tier: 'major'      — diplomas / serious multi-month or multi-day programs
 // tier: 'continuous' — shorter courses shown in a secondary "Continuous learning" section
 
 export const certifications = [
+  {
+    id: 'digitera-technical-track',
+    title: { en: 'Digitera Program — Technical Track (Frontend)', ar: 'برنامج Digitera — المسار التقني (Frontend)' },
+    issuer: 'iCareer × EraaSoft (with Plan International Egypt)',
+    date: 'Sep 2026',
+    hours: '2 weeks',
+    tier: 'major',
+    file: '/certificates/digitera-technical-track.jpg',
+  },
   {
     id: 'eraasoft-frontend',
     title: { en: 'Front-End Development Diploma', ar: 'دبلوم تطوير الواجهات الأمامية' },
